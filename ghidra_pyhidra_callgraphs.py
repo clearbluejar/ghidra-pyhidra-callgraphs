@@ -1,5 +1,6 @@
 import argparse
 from pathlib import Path
+import re
 
 import pyhidra
 pyhidra.start(True)
@@ -15,31 +16,66 @@ if TYPE_CHECKING:
 from ghidra.util.task import ConsoleTaskMonitor
 from ghidra.program.model.listing import Function
 
-
 class CallGraph:
     def __init__(self,root=None):
-        self.graph = dict()
+        self.graph = {}
+        self.mind = []
         self.title = None
         self.root = root
+        self.count = 0
 
-    def setRoot(self, root: str):
+    def set_root(self, root: str):
         self.root = root
 
-    def addEdge(self, node1, node2, depth):
+    def add_edge(self, node1, node2, depth):
 
         self.graph.setdefault(node1, [])
         self.graph.setdefault(node2, [])
 
-        self.graph[node1].append((node2, depth))
+        self.graph[node1].append((node2, depth, self.count))
+        self.count += 1
 
-        # in case of undirected graph
-        # self.graph[node2].append((node1, int(cost)))
-
-    def printGraph(self):
+    def print_graph(self):
         for source, destination in self.graph.items():
             print(f"{source}-->{destination}")
 
-    def gen_mermaid_flow_graph(self, direction='TD', shade_nodes : list = []):
+    def get_entrypoints(self) -> list:
+
+        entrypoints = set()
+
+        destinations = []
+        
+        for src,dst in self.graph.items():
+        
+            # special case of loop
+            if len(dst) == 1 and dst[0] == src:
+                # don't append to destinations in this case
+                continue
+                
+        
+            for d in dst:
+                destinations.append(d[0])
+
+        entrypoints = set(self.graph.keys()).difference(set(destinations))
+
+        return list(entrypoints)
+
+    def depth_count(self, depth: int) -> int:
+        """
+        Returns count for nodes at a specific depth
+        """
+
+        count = 0
+        for src,dst in self.graph.items():
+
+            for d in dst:
+                if d[1] == depth:
+                    count += 1
+
+        return count
+
+
+    def gen_mermaid_flow_graph(self, direction='TD', shade_nodes : list = []) -> str:
         """
         Generate MermaidJS flowchart from self.graph
         See https://mermaid.js.org/syntax/flowchart.html
@@ -73,40 +109,61 @@ class CallGraph:
                 link = f'{node_keys[src]}["{src}"] --> {node_keys[node[0]]}["{node[0]}"]'
                 links.add(link)
                    
-                # link = f"{src} --> {node[0]}"
-                # links.add(link.replace('~', 'dtor_'))
+            # link = f"{src} --> {node[0]}"
+            # links.add(link.replace('~', 'dtor_'))
+
         return mermaid_flow.format(links='\n'.join(set(links)), direction=direction)
 
 
-    def gen_mermaid_mind_map(self):
+    def gen_mermaid_mind_map(self) -> str:
         """
-        Generate MermaidJS flowchart from self.graph
-        See https://mermaid.js.org/syntax/flowchart.html
+        Generate MermaidJS mindmap from self.graph
+        See https://mermaid.js.org/syntax/mindmap.html
         """
 
         rows = []
 
-        mermaid_mind = '''mindmap\n  root(({root}))\n{rows}\n'''
+        mermaid_mind = '''mindmap\nroot(({root}))\n{rows}\n'''
 
-        for key,items in self.graph.items():
+        destinations = []
 
-            for item in items:
-                row = f"{'  '*item[1] + item[0]}"
-                print(row)
-                rows.append(row)
+        for src,dst in self.graph.items():
+            for d in dst:
+                destinations.append(d)
+
+        last_depth = 0
+        current_level_names = []
+        for i,row in enumerate(sorted(destinations,key=lambda x: x[2])):
+            depth = row[1]            
+
+            # skip root row
+            if depth < 2:                
+                continue
+
+            if depth < last_depth:
+                # reset level names
+                current_level_names = []
+
+            if not row[0] in current_level_names:
+                spaces = (depth+1)*'  '
+                rows.append(f"{spaces}{row[0]}")
+                last_depth = depth
+                current_level_names.append(row[0])
             
 
-        return mermaid_mind.format(rows='\n'.join(set(rows)), root=self.root)
+            # handle root node
+            
+
+        return mermaid_mind.format(rows='\n'.join(rows), root=self.root)        
 
 MAX_DEPTH = 10000
 monitor = ConsoleTaskMonitor()
 
-# Recursively calling to parse called functions
-
-
-def GetCalling(f: Function, cgraph: CallGraph = CallGraph(), depth: int = 0, entry_points: list = [], visited: list = []):
+# Recursively calling to build calling graph
+def get_calling(f: Function, cgraph: CallGraph = CallGraph(), depth: int = 0, entry_points: list = [], visited: list = []):
     """
     Build a call graph of all calling functions
+    Traverses depth first
     """
 
     if f == None:
@@ -114,24 +171,26 @@ def GetCalling(f: Function, cgraph: CallGraph = CallGraph(), depth: int = 0, ent
 
     if depth == 0:        
         print(f"root({f.getName(True)})")
-        cgraph.setRoot(f.getName(True))
+        #cgraph.mind.append(f"root({f.getName(True)})")
+        cgraph.set_root(f.getName(True))
     # Traverse through to MAX_DEPTH
     elif depth > MAX_DEPTH:
         return cgraph
-    # loop check
-
-    space = depth*'  ' + '  '
     
+    space = (depth+2)*'  '
+    
+    # loop check
     if [f.entryPoint.toString(), f.getName(True)] in visited:
         
         # calling loop
         print(f"{space} - LOOOOP {f.getName(True)}")
+        cgraph.mind.append(f"{space} LOOOOP {f.getName(True)}")
 
         # mark start_point
         entry_points.append([depth, f"LOOOOP {f.getName(True)}"])
 
         # add ref to self
-        cgraph.addEdge(f.getName(), f.getName(), depth)
+        cgraph.add_edge(f.getName(), f.getName(), depth)
         
         return cgraph
 
@@ -147,7 +206,9 @@ def GetCalling(f: Function, cgraph: CallGraph = CallGraph(), depth: int = 0, ent
         for c in calling:
 
             # Add calling edge
-            cgraph.addEdge(c.getName(), f.getName(), depth)
+            cgraph.add_edge(c.getName(), f.getName(), depth)
+
+            cgraph.mind.append(f"{space}{c.getName()}")
 
             if c.isExternal():
                 print(f"{space} - {c.getExternalLocation().getLibraryName()} name {c.getName(False)} ")
@@ -155,17 +216,19 @@ def GetCalling(f: Function, cgraph: CallGraph = CallGraph(), depth: int = 0, ent
                 print(f"{space} - {c.getName()}")
 
             # Parse further functions
-            cgraph = GetCalling(c, cgraph, depth,  entry_points, currently_visited)
+            cgraph = get_calling(c, cgraph, depth,  entry_points, currently_visited)
 
     else:
         entry_points.append([depth, f.getName(False)])
 
     return cgraph
 
+def _wrap_mermaid(text: str) -> str:
+    return f'''```mermaid\n{text}\n```'''
+
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser(
-        description='A demo Ghidra callgraph generation script')
+    parser = argparse.ArgumentParser(description='A demo Ghidra callgraph generation script')
 
     parser.add_argument('bin', help='Path to binary used for analysis')
 
@@ -182,7 +245,8 @@ if __name__ == "__main__":
     bin_path = Path(args.bin)
     cgraph_name = bin_path.name
     project_location = Path('.ghidra_projects')
-
+    output_path = Path(args.output_path) / bin_path.name
+    output_path.mkdir(exist_ok=True,parents=True)
 
 with pyhidra.open_program(bin_path, project_location=project_location, project_name=bin_path.name,analyze=False) as flat_api:
 
@@ -218,22 +282,39 @@ with pyhidra.open_program(bin_path, project_location=project_location, project_n
                 # skip functions that don't match any of the include args
                 continue
 
-
         entry_points = []
         visited = []
 
         cgraph = CallGraph()
-        cgraph = GetCalling(f,cgraph, entry_points=entry_points, visited=visited)
+        cgraph = get_calling(f,cgraph, entry_points=entry_points, visited=visited)
+        
         print(entry_points)
         
         flow = cgraph.gen_mermaid_flow_graph()
         print(flow)
+        mind = cgraph.gen_mermaid_mind_map()        
+        print(mind)
+        
+        skip_output = []
+        
+        if len(cgraph.graph) > 5:
 
-
-
-        if len(cgraph.graph) > 20:
-            print('here')
-            mind = cgraph.gen_mermaid_mind_map()
+            print(flow)
             print(mind)
+            print(cgraph.get_entrypoints())
+
+            file_name = re.sub(r'[^\w_. -]', '_', f.getName())
+
+            if len(file_name) > 15:
+                skip_output.append([f.getName(True), len(file_name)])
+            else:
+                graph_path = output_path / Path(file_name + '.flow.md')
+                mind_path = output_path / Path(file_name + '.mind.md')
+                graph_path.write_text(_wrap_mermaid(flow))
+                mind_path.write_text(_wrap_mermaid(mind))
         else:
-            print('here')
+            print(f"Skipping out for short graph {f.getName(True)}")
+
+
+        if cgraph.depth_count(2) > 10:
+            print(mind)
