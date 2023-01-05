@@ -1,4 +1,4 @@
-# ghidra-python-vscode-devcontainer-skeleton
+# ghidra-pyhidra-callgraphs-md
 
 <p align="center">
 <img align="center" src="https://user-images.githubusercontent.com/3752074/189025332-c62b7eae-464a-49e6-8b9e-c4ff103832a5.jpg">
@@ -9,22 +9,15 @@
   <img align="center" src="https://img.shields.io/github/stars/clearbluejar/ghidra-python-vscode-devcontainer-skeleton?style=for-the-badge">
 </p>
 
-Blog post: [Ghidra Python Paleontology](https://clearbluejar.github.io/posts/building-vscode-ghidra-python-skeletons/)
+Blog post: [Ghidra Function Entrypoints](https://clearbluejar.github.io/posts/ghidra-function-entrypoints)
 
-A skeleton repo to provide a Ghidra Headless (non-GUI) Python scripting environment in VS Code.
+A demo repo leveraging a Ghidra Headless (non-GUI) Python script to generate call graphs in mermaidsjs compatible markdown. 
 
 ## Features
 
-- Prescribes [workflow](#workflow) to get you started (modify as needed)
-- Container dependencies captured in [.devcontainer](.devcontainer/)
-  - Leverages [vscode python3 devcontainer image](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/python-3) with Java [feature](.devcontainer/devcontainer.json#L64-L66) added for running Ghidra
-  - Provisions specified versions Ghidra based on `GHIDRA_VERSION` in [devcontainer.json](.devcontainer/devcontainer.json#L15-L16)
-- Auto complete for Ghidra Python script setup and configured
-  - via pyi typings from [VDOO-Connected-Trust/ghidra-pyi-generator](https://github.com/VDOO-Connected-Trust/ghidra-pyi-generator)
-- IDE debugging (available from either)
-  - [justfoxing/ghidra_bridge](https://github.com/justfoxing/ghidra_bridge) over RPC
-  - [pyhidra](https://github.com/dod-cyber-crime-center/pyhidra) leveraging native CPython interpreter using [jpype](https://jpype.readthedocs.io/en/latest/)
-- Demonstrates running python scripts in [various ways](#different-ways-to-run-a-ghidra-headless-script).
+- Supports functions call graphs in mermaidsjs:
+  - flowchart
+  - sequence diagram 
 
 ## About
 
@@ -68,20 +61,20 @@ This version is an upgrade from the old [ghidra-python-vscode-skeleton](https://
 
 ---
 
-## Quick Start Setup - Dev Container  (Best Option)
+## Install  
 
-On first run, it will build a fast [debian image](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/python-3) with the python3 installed along with java dependencies needed for Ghidra scripting. Then it will download Ghidra based on your settings in [devcontainer.json](.devcontainer/devcontainer.json#L15-L16) and finally create the virtual environment for python and required pip packages in [post-create.sh](.devcontainer/post-create.sh).
+### 
 
-Make sure you have the [prequisites](https://code.visualstudio.com/docs/remote/containers-tutorial#_prerequisites) setup for working with devcontainers in VS Code. Detailed instructions are available [here](https://code.visualstudio.com/docs/remote/containers#_getting-started). If you aren't using the devcontainer, you will need to use the [manual setup](#manual-setup-less-good-option).
+### Option 1: Dev Container (Best Option) 
 
-### Option 1: Open a Git repository or GitHub PR in an isolated container volume
+Detailed here: https://github.com/clearbluejar/ghidra-python-vscode-devcontainer-skeleton 
 
 1. Start VS Code and run `Remote-Containers: Clone Repository in Container Volume...` from the Command Palette (F1).
 2. Ctrl-V `https://github.com/clearbluejar/ghidra-python-vscode-devcontainer-skeleton`
 3. VS Code will reload, clone the source code, and start building the container. 
 4. After the build completes, VS Code will open with the container. You can now work with the repository source code in this independent environment as you would if you had cloned the code locally.
 
-### Option 2: Open an existing folder in a container
+### Option 2: Virtualenv Standard setup
 
 1. `git clone git@github.com:clearbluejar/ghidra-python-vscode-devcontainer-skeleton.git`
 2. code `ghidra-python-vscode-devcontainer-skeleton`
