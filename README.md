@@ -35,6 +35,9 @@ This repo is a starting point for your Ghidra Python scripting project in vscode
     - [Option 2: Virtualenv Standard setup](#option-2-virtualenv-standard-setup)
   - [Usage](#usage)
   - [Sample Call Graphs](#sample-call-graphs)
+    - [Calling Flowchart](#calling-flowchart)
+      - [SplGetPrinterDataEx from localspl.dll](#splgetprinterdataex-from-localspldll)
+    - [Called](#called)
 
 ---
 
@@ -65,4 +68,66 @@ pip install -r requirements.txt
 
 ## Sample Call Graphs
 
+### Calling Flowchart
 
+#### SplGetPrinterDataEx from localspl.dll
+
+```mermaid
+flowchart TD
+
+14["CheckForOfflinePrinterQueues"] --> 12["AddPrinterForOfflinePrinteQueue"]
+25["InitializePrintProvidor"] --> 24["SplCreateSpooler"]
+5["RecreateDsKey"] --> 7["UpdateDsSpoolerKey"]
+19["DsUpdatePrinter"] --> 7["UpdateDsSpoolerKey"]
+23["InitializeDS"] --> 22["SpawnDsUpdate"]
+10["SplAddPrinter"] --> 11["SetRegistryData"]
+15["FUN_18004f76a"] --> 15["FUN_18004f76a"]
+10["SplAddPrinter"] --> 5["RecreateDsKey"]
+15["FUN_18004f76a"] --> 14["CheckForOfflinePrinterQueues"]
+26["DsPrinterPublish"] --> 34["DsPrinterUpdate"]
+10["SplAddPrinter"] --> 9["GetQueueNameFromDevice"]
+19["DsUpdatePrinter"] --> 4["UpdateDsDriverKeyImpl"]
+8["SplSetPrinter"] --> 8["SplSetPrinter"]
+2["SplSetPrinterDataEx"] --> 1["SplCopyFileEvent"]
+12["AddPrinterForOfflinePrinteQueue"] --> 13["SplDeletePrinterWithJobs"]
+7["UpdateDsSpoolerKey"] --> 2["SplSetPrinterDataEx"]
+32["SetMandatoryProperties"] --> 2["SplSetPrinterDataEx"]
+19["DsUpdatePrinter"] --> 6["SetPrinterDs"]
+21["DsUpdate"] --> 20["DsUpdateSpooler"]
+11["SetRegistryData"] --> 2["SplSetPrinterDataEx"]
+17["LocalAddPrinter"] --> 10["SplAddPrinter"]
+20["DsUpdateSpooler"] --> 19["DsUpdatePrinter"]
+8["SplSetPrinter"] --> 7["UpdateDsSpoolerKey"]
+24["SplCreateSpooler"] --> 23["InitializeDS"]
+27["SplDeletePrinter"] --> 13["SplDeletePrinterWithJobs"]
+6["SetPrinterDs"] --> 22["SpawnDsUpdate"]
+31["SplDeleteForm"] --> 29["InternalDeleteForm"]
+6["SetPrinterDs"] --> 26["DsPrinterPublish"]
+7["UpdateDsSpoolerKey"] --> 32["SetMandatoryProperties"]
+6["SetPrinterDs"] --> 6["SetPrinterDs"]
+18["SplAddCSRPrinter"] --> 10["SplAddPrinter"]
+12["AddPrinterForOfflinePrinteQueue"] --> 10["SplAddPrinter"]
+8["SplSetPrinter"] --> 4["UpdateDsDriverKeyImpl"]
+29["InternalDeleteForm"] --> 28["DsUpdateAllDriverKeys"]
+30["LocalDeleteForm"] --> 29["InternalDeleteForm"]
+34["DsPrinterUpdate"] --> 33["PublishMandatoryProperties"]
+4["UpdateDsDriverKeyImpl"] --> 3["DevCapMultiSz"]
+8["SplSetPrinter"] --> 5["RecreateDsKey"]
+28["DsUpdateAllDriverKeys"] --> 22["SpawnDsUpdate"]
+13["SplDeletePrinterWithJobs"] --> 6["SetPrinterDs"]
+9["GetQueueNameFromDevice"] --> 8["SplSetPrinter"]
+3["DevCapMultiSz"] --> 2["SplSetPrinterDataEx"]
+8["SplSetPrinter"] --> 6["SetPrinterDs"]
+7["UpdateDsSpoolerKey"] --> 7["UpdateDsSpoolerKey"]
+16["LocalAddPrinterEx"] --> 10["SplAddPrinter"]
+5["RecreateDsKey"] --> 4["UpdateDsDriverKeyImpl"]
+22["SpawnDsUpdate"] --> 21["DsUpdate"]
+5["RecreateDsKey"] --> 6["SetPrinterDs"]
+5["RecreateDsKey"] --> 5["RecreateDsKey"]
+19["DsUpdatePrinter"] --> 19["DsUpdatePrinter"]
+4["UpdateDsDriverKeyImpl"] --> 2["SplSetPrinterDataEx"]
+33["PublishMandatoryProperties"] --> 32["SetMandatoryProperties"]
+1["SplCopyFileEvent"] --> 0["SplGetPrinterDataEx"]
+```
+
+### Called
