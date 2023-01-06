@@ -19,17 +19,21 @@ from ghidra.util.task import ConsoleTaskMonitor
 from ghidra.program.model.listing import Function
 
 class CallGraph:
+
     def __init__(self, root=None):
         self.graph = {}
-        # self.mind = []
         self.title = None
-        self.root = root
         self.count = 0
+        self.max_depth = 0
+        self.root = root
 
     def set_root(self, root: str):
+        self.graph.setdefault(root,[])
         self.root = root
 
     def add_edge(self, node1, node2, depth):
+
+        assert self.root is not None, 'root node must be set prior to adding an edge'
 
         self.graph.setdefault(node1, [])
         self.graph.setdefault(node2, [])
@@ -37,15 +41,26 @@ class CallGraph:
         self.graph[node1].append((node2, depth, self.count))
         self.count += 1
 
-    def print_graph(self):
-        for source, destination in self.graph.items():
-            print(f"{source}-->{destination}")
+        # update max depth
+        if depth > self.max_depth:
+            self.max_depth = depth
 
-    def get_endpoints(self, end_at_bottom=True) -> list:
+    def print_graph(self):
+        for src, dst in self.graph.items():
+            print(f"{src}-->{dst}")
+
+    def root_at_end(self) -> bool:
+        """
+        Determines the direction of the graph
+        """
+        # if the root has no links, the root is at the end
+        return len(self.graph[self.root]) == 0
+
+    def get_endpoints(self) -> list:
 
         end_nodes = set()
 
-        if end_at_bottom:
+        if not self.root_at_end():
             for src, dst in self.graph.items():
                 # special case of loop
                 if len(dst) == 0 or len(dst) == 1 and dst[0] == src:
@@ -67,7 +82,7 @@ class CallGraph:
 
         return list(end_nodes)
 
-    def depth_count(self, depth: int) -> int:
+    def get_count_at_depth(self, depth: int) -> int:
         """
         Returns count for nodes at a specific depth
         """
@@ -83,7 +98,7 @@ class CallGraph:
 
     def links_count(self) -> int:
         """
-        Returns count for edges
+        Returns count of edges
         """
 
         count = 0
@@ -94,7 +109,7 @@ class CallGraph:
 
         return count
 
-    def gen_mermaid_flow_graph(self, direction='TD', shaded_nodes: list = None, shade_color='#339933', max_display_depth=None) -> str:
+    def gen_mermaid_flow_graph(self, direction=None, shaded_nodes: list = None, shade_color='#339933', max_display_depth=None, endpoint_only=False) -> str:
         """
         Generate MermaidJS flowchart from self.graph
         See https://mermaid.js.org/syntax/flowchart.html
@@ -106,8 +121,16 @@ class CallGraph:
         # used to create a key index for flowchart ids
         # once defineed, a func name can be represented by a symbol, saving space
         node_keys = {}        
-        node_count = 0
+        node_count = 0        
         existing_base_links = set()
+
+        # guess best orientation
+        if not direction:
+            if len(self.graph) < 350:
+                direction = 'TD'
+            else:
+                direction = 'LR'
+            
 
         mermaid_flow = '''flowchart {direction}\n{style}\n{links}\n'''
 
@@ -116,58 +139,83 @@ class CallGraph:
         else:
             style = ''
 
-        if len(self.graph) == 0:
-            links = [str(self.root)]
+        if len(self.graph) == 1:
+            links = [self.root]
         else:
             links = set()
 
-        for src, dst in self.graph.items():
+            if endpoint_only:            
 
-            if shaded_nodes and src in shaded_nodes:
-                src_style_class = ':::shaded'
-            else:
-                src_style_class = ''
+                endpoints = self.get_endpoints()
 
-            for node in dst:
+                for i, end in enumerate(endpoints):
 
-                depth = node[1]
-                fname = node[0]
+                    if shaded_nodes and end in shaded_nodes:
+                        end_style_class = ':::shaded'
+                    else:
+                        end_style_class = ''
 
-                if max_display_depth and depth > max_display_depth:
-                    continue
+                    if shaded_nodes and self.root in shaded_nodes:
+                        root_style_class = ':::shaded'
+                    else:
+                        root_style_class = ''
 
-                if shaded_nodes and fname in shaded_nodes:
-                    dst_style_class = ':::shaded'
-                else:
-                    dst_style_class = ''
+                    if self.root_at_end():
+                        link = f'{i}["{end}"]{end_style_class} --> root["{self.root}"]{root_style_class}'
+                    else:
+                        link = f'root["{self.root}"]{root_style_class} --> {i}["{end}"]{end_style_class}'
 
-                # Build src --> dst link
-                ## Don't add duplicate links
-                ## Use short ids for func name to save space with node_keys
-                if node_keys.get(src) is None:
-                    node_keys[src] = node_count
-                    node_count += 1
-                    src_node = f'{node_keys[src]}["{src}"]{src_style_class}'
-                else:
-                    src_node = f'{node_keys[src]}{src_style_class}'
-
-                if node_keys.get(fname) is None:
-                    node_keys[fname] = node_count
-                    node_count += 1
-                    dst_node = f'{node_keys[fname]}["{fname}"]{dst_style_class}'
-                else:
-                    dst_node = f'{node_keys[fname]}{dst_style_class}'
-
-                # record base link
-                current_base_link = f'{src} --> {node[0]}'
-                
-                # don't add link if another already exists
-                if not current_base_link in existing_base_links:
-                    link = f'{src_node} --> {dst_node}'
                     links.add(link)
-                    existing_base_links.add(current_base_link)
-                # else:
-                #     print('Duplicate base link found!')
+
+            else:
+                    
+                for src, dst in self.graph.items():
+
+                    if shaded_nodes and src in shaded_nodes:
+                        src_style_class = ':::shaded'
+                    else:
+                        src_style_class = ''
+
+                    for node in dst:
+
+                        depth = node[1]
+                        fname = node[0]
+
+                        if max_display_depth and depth > max_display_depth:
+                            continue
+
+                        if shaded_nodes and fname in shaded_nodes:
+                            dst_style_class = ':::shaded'
+                        else:
+                            dst_style_class = ''
+
+                        # Build src --> dst link
+                        ## Don't add duplicate links
+                        ## Use short ids for func name to save space with node_keys
+                        if node_keys.get(src) is None:
+                            node_keys[src] = node_count
+                            node_count += 1
+                            src_node = f'{node_keys[src]}["{src}"]{src_style_class}'
+                        else:
+                            src_node = f'{node_keys[src]}{src_style_class}'
+
+                        if node_keys.get(fname) is None:
+                            node_keys[fname] = node_count
+                            node_count += 1
+                            dst_node = f'{node_keys[fname]}["{fname}"]{dst_style_class}'
+                        else:
+                            dst_node = f'{node_keys[fname]}{dst_style_class}'
+
+                        # record base link
+                        current_base_link = f'{src} --> {node[0]}'
+                        
+                        # don't add link if another already exists
+                        if not current_base_link in existing_base_links:
+                            link = f'{src_node} --> {dst_node}'
+                            links.add(link)
+                            existing_base_links.add(current_base_link)
+                        # else:
+                        #     print('Duplicate base link found!')
                 
                 
 
@@ -210,8 +258,9 @@ class CallGraph:
 
         return mermaid_mind.format(rows='\n'.join(rows), root=self.root)
 
-
+# don't really limit the graph
 MAX_DEPTH = 10000
+
 monitor = ConsoleTaskMonitor()
 
 # Recursively calling to build calling graph
@@ -240,7 +289,6 @@ def get_calling(f: Function, cgraph: CallGraph = CallGraph(), depth: int = 0, vi
         # calling loop
         if verbose:
             print(f"{space} - LOOOOP {f.getName(include_ns)}")
-        # cgraph.mind.append(f"{space} LOOOOP {f.getName(include_ns)}")
 
         # add ref to self
         cgraph.add_edge(f.getName(include_ns), f.getName(include_ns), depth)
@@ -297,7 +345,6 @@ def get_called(f: Function, cgraph: CallGraph = CallGraph(), depth: int = 0, vis
         # calling loop
         if verbose:
             print(f"{space} - LOOOOP {f.getName(True)}")
-        # cgraph.mind.append(f"{space} LOOOOP {f.getName(True)}")
 
         # add ref to self
         cgraph.add_edge(f.getName(), f.getName(), depth)
@@ -325,13 +372,6 @@ def get_called(f: Function, cgraph: CallGraph = CallGraph(), depth: int = 0, vis
             else:
                 cgraph.add_edge(f.getName(), c.getName(), depth)
 
-            # cgraph.mind.append(f"{space}{c.getName()}")
-
-            # if c.isExternal():
-            #     print(f"{space} - {c.getExternalLocation().getLibraryName()} name {c.getName(False)} ")
-            # else:
-            #     print(f"{space} - {c.getName()}")
-
             # Parse further functions
             cgraph = get_called(c, cgraph, depth, visited=currently_visited)
 
@@ -341,20 +381,51 @@ def get_called(f: Function, cgraph: CallGraph = CallGraph(), depth: int = 0, vis
 def _wrap_mermaid(text: str) -> str:
     return f'''```mermaid\n{text}\n```'''
 
+def gen_callgraph_md(f: Function, called: str, calling: str, calling_entrypoints: str, called_endpoints: str):
+
+    fname = f.getName(True)
+
+    md_template = f'''
+# {fname}
+
+## Calling
+
+Functions that call `{fname}`.
+
+{_wrap_mermaid(calling)}
+
+### Entrypoints
+
+A condensed view, showing only entrypoints to the callgraph.
+
+{_wrap_mermaid(calling_entrypoints)}
+
+## Called
+
+Functions that `{fname}` calls
+
+{_wrap_mermaid(called)}
+
+### Endpoints
+
+A condensed view, showing only endpoints of the callgraph.
+
+{_wrap_mermaid(called_endpoints)}
+
+'''
+
+    return md_template
+
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser(
-        description='A demo Ghidra callgraph generation script')
+    parser = argparse.ArgumentParser(description='A demo Ghidra callgraph generation script')
 
     parser.add_argument('bin', help='Path to binary used for analysis')
-
-    parser.add_argument('--include',  action='append',
-                        help='Filter name or partial name of function to graph.')
-    parser.add_argument('-s', '--symbol-path',
-                        dest='symbol_path', help='Path to symbol path for bin')
-    parser.add_argument('-o', '--output-path', dest="output_path",
-                        help='Callgraph output directory. WinBinDiff Output Path', default='.callgraphs')
+    parser.add_argument('--include',  action='append',help='Func name or partial name to include')
+    parser.add_argument('-s', '--symbol-path', help='Path to symbol path for bin')
+    parser.add_argument('-o', '--output-path', help='Callgraph output directory.', default='.callgraphs')
+    parser.add_argument('-m', '--max-display-depth', help='Max Depth for graph generation. Will affect size of markdown')
 
     args = parser.parse_args()
 
@@ -363,6 +434,11 @@ if __name__ == "__main__":
     bin_path = Path(args.bin)
     cgraph_name = bin_path.name
     project_location = Path('.ghidra_projects')
+
+    if args.max_display_depth:
+        max_display_depth = int(args.max_display_depth)
+    else:
+        max_display_depth = None
 
     output_path = Path(args.output_path) / bin_path.name
     output_path.mkdir(exist_ok=True, parents=True)
@@ -407,42 +483,47 @@ if __name__ == "__main__":
 
             print(f"Processing function: {f.getName(True)}")
 
-            calling = get_calling(f)
+            calling = get_calling(f)            
 
-            if len(calling.graph) >= 300:
+            if len(calling.graph) >= 700:
                 # too big for demo
-                print(f"Skipping {f.getName(True)}:  calling: {len(calling.graph)}")
+                print(f"Skipping {f.getName(True)}:\t\t\t\tcalling: {len(calling.graph)} {calling.max_depth}")                
                 continue
-
-
+            
             called = get_called(f)
-            called_flow = called.gen_mermaid_flow_graph(shaded_nodes=called.get_endpoints(),max_display_depth=1)
-            called_mind = called.gen_mermaid_mind_map()
 
-            calling_flow = calling.gen_mermaid_flow_graph(shaded_nodes=calling.get_endpoints(end_at_bottom=False))
-            calling_mind = calling.gen_mermaid_mind_map(max_display_depth=3)
+            called_flow = called.gen_mermaid_flow_graph(shaded_nodes=called.get_endpoints(), max_display_depth=max_display_depth, direction='LR')
+            called_flow_ends = called.gen_mermaid_flow_graph(shaded_nodes=called.get_endpoints(), endpoint_only=True, direction='LR')
+            called_mind = called.gen_mermaid_mind_map(max_display_depth=3)
+
+            calling_flow = calling.gen_mermaid_flow_graph(shaded_nodes=calling.get_endpoints(), max_display_depth=max_display_depth)
+            calling_flow_ends = calling.gen_mermaid_flow_graph(shaded_nodes=calling.get_endpoints(),endpoint_only=True)
+            calling_mind = calling.gen_mermaid_mind_map(max_display_depth=7)
 
             if len(calling.graph) > 5 or args.include:
+                print(f"Processing {f.getName(True)}:\t\t\t\tcalling: {len(calling.graph)} {calling.max_depth} called: {len(called.graph)} {called.max_depth}")
 
                 file_name = re.sub(r'[^\w_. -]', '_', f.getName())
                 file_name = file_name[:100]  #truncate
                 
                 if len(calling.graph) < 300 and len(called.graph) < 600:                
-                    print(calling_flow)
-                    print(calling_mind)
-                    print(calling.get_endpoints())
+                    # print(calling_flow)
+                    # print(calling_mind)
+                    # print(calling.get_endpoints())
 
-                    print(called_flow)
-                    print(called_mind)
-                    print(called.get_endpoints())
+                    # print(called_flow)
+                    # print(called_mind)
+                    # print(called.get_endpoints())
 
                     graph_path = output_path / Path(file_name + '.flow.md')
                     mind_path = output_path / Path(file_name + '.mind.md')                
-                    graph_path.write_text(_wrap_mermaid(calling_flow) + '\n' + _wrap_mermaid(called_flow))
+                    #graph_path.write_text(_wrap_mermaid(calling_flow_ends))
+                    graph_path.write_text(gen_callgraph_md(f,called_flow,calling_flow,calling_flow_ends,called_flow_ends))
+                    # graph_path.write_text(_wrap_mermaid(calling_flow) + '\n' + _wrap_mermaid(called_flow))
                     mind_path.write_text(_wrap_mermaid(calling_mind) + '\n' + _wrap_mermaid(called_mind))                            
                 else:
                     # too big for demo
-                    print(f"Skipping {f.getName(True)}:  calling: {len(calling.graph)} called: {len(called.graph)}")
+                    print(f"Skipping {f.getName(True)}:\t\t\t\tcalling: {len(calling.graph)} {calling.max_depth} called: {len(called.graph)} {called.max_depth}")
                 
 
                 
