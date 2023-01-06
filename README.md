@@ -576,7 +576,7 @@ flowchart TD
 
 ### Calling Mind
 
-
+![SplGetPrintProcCaps](https://user-images.githubusercontent.com/3752074/211108544-3f429617-98a1-4b73-9423-843d39f5de70.png)
 
 ## Called
 
