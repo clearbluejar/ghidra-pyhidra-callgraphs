@@ -50,6 +50,31 @@
                 "IsSpoolerImpersonating"
 
             ]
+        },
+        {
+            "name": "SPL funcs: localspl.dll Contains ",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            // Don't edit env directly, they read from settings.json
+            // Add/delete new vars as needed
+            "env": {                
+                "GHIDRA_INSTALL_DIR": "${config:GHIDRA_INSTALL_DIR}",
+                "GHIDRA_PROJECTS_PATH": "${config:GHIDRA_PROJECTS_PATH}",
+                "GHIDRA_HEADLESS":  "${config:GHIDRA_HEADLESS}",     
+                "PROJECT_NAME": "${config:PROJECT_NAME}",     
+                "GHIDRA_BRIDGE_INSTALL_DIR": "${config:GHIDRA_BRIDGE_INSTALL_DIR}",           
+            },
+            "args": [
+                ".data/localspl.dll.x64.10.0.22000.376",
+                "-s",
+                ".data/localspl.pdb",
+                "--include",
+                "Spl"
+
+            ]
         }
     ]
 }
