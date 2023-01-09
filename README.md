@@ -24,10 +24,9 @@ This Python script is powered by [Ghidra](https://github.com/NationalSecurityAge
   - [About](#about)
   - [TOC](#toc)
   - [Install](#install)
-  - [Devcontainer](#devcontainer)
-    - [Option 1: Open a Git repository or GitHub PR in an isolated container volume](#option-1-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)
-    - [Option 2: Open an existing folder in a container](#option-2-open-an-existing-folder-in-a-container)
-  - [Virtualenv](#virtualenv)
+    - [Devcontainer Option 1: Open a Git repository or GitHub PR in an isolated container volume](#devcontainer-option-1-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)
+    - [Devcontainer Option 2: Open an existing folder in a container](#devcontainer-option-2-open-an-existing-folder-in-a-container)
+  - [Virtualenv Option 3:](#virtualenv-option-3)
   - [Usage](#usage)
     - [Demo Repo Usage](#demo-repo-usage)
   - [Generated Call Graphs](#generated-call-graphs)
@@ -35,7 +34,7 @@ This Python script is powered by [Ghidra](https://github.com/NationalSecurityAge
     - [Calling Flowchart](#calling-flowchart)
       - [SplGetPrinterDataEx from localspl.dll](#splgetprinterdataex-from-localspldll)
     - [Calling Mind](#calling-mind)
-  - [Called](#called)
+    - [Called](#called)
     - [SplWritePrinter](#splwriteprinter)
 
 ---
