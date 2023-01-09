@@ -509,7 +509,8 @@ Skipping sandbox::DriverConfigModuleObserver::SandboxSplDeviceCapabilities:     
 Some sample results are in the [.callgraphs](.callgraphs) directory:
 - [IsSpoolerImpersonating](.callgraphs/localspl.dll.x64.10.0.22000.376/IsSpoolerImpersonating.flow.md)
 - [LcmStartDocPort](.callgraphs/localspl.dll.x64.10.0.22000.376/LcmStartDocPort.flow.md)
-- 
+- [Several Others](.callgraphs/)
+  
 ### Calling Flowchart
 
 #### SplGetPrinterDataEx from localspl.dll
@@ -576,7 +577,7 @@ flowchart TD
 
 ![SplGetPrintProcCaps](https://user-images.githubusercontent.com/3752074/211108544-3f429617-98a1-4b73-9423-843d39f5de70.png)
 
-## Called
+### Called
 
 ### SplWritePrinter
 
