@@ -2,316 +2,101 @@
 mindmap
 root((SplGetPrinterDriverEx))
       WriteSepBuf
-        DoSeparatorPage
-          DoSeparator
-            PrintingDirectlyToPort
-              InternalStartDocPrinter
-      WriteSepBuf
         FlushOutBuf
           AddNormalChar
             FlushNewLine
               DoSeparatorPage
                 DoSeparator
-                  PrintingDirectlyToPort
-                    InternalStartDocPrinter
           AddNormalChar
             DoSeparatorPage
               DoSeparator
                 PrintingDirectlyToPort
-                  InternalStartDocPrinter
         FlushOutBuf
           FlushNewLine
             DoSeparatorPage
               DoSeparator
                 PrintingDirectlyToPort
-                  InternalStartDocPrinter
         FlushOutBuf
           DoSeparatorPage
             DoSeparator
               PrintingDirectlyToPort
                 InternalStartDocPrinter
+      WriteSepBuf
+        DoSeparatorPage
+          DoSeparator
+            PrintingDirectlyToPort
+              InternalStartDocPrinter
       SplCopyFileEvent
-        SplSetPrinterDataEx
-          UpdateDsSpoolerKey
-            DsUpdatePrinter
-              DsUpdateSpooler
-                DsUpdate
-                  SpawnDsUpdate
-                    DsUpdateAllDriverKeys
-                      InternalDeleteForm
-                  SpawnDsUpdate
-                    InitializeDS
-                      SplCreateSpooler
-                  SpawnDsUpdate
-                    SetPrinterDs
-                    DsUpdatePrinter
-                      RecreateDsKey
-                        SplAddPrinter
-                          AddPrinterForOfflinePrinteQueue
-                            CheckForOfflinePrinterQueues
-                              FUN_18004f76a
-                      RecreateDsKey
-                        SplSetPrinter
-                          GetQueueNameFromDevice
-                            SplAddPrinter
-                              AddPrinterForOfflinePrinteQueue
-                                CheckForOfflinePrinterQueues
-                                  FUN_18004f76a
-                    SetPrinterDs
-                      SplDeletePrinterWithJobs
-                        AddPrinterForOfflinePrinteQueue
-                          CheckForOfflinePrinterQueues
-                            FUN_18004f76a
-                    SetPrinterDs
-                      SplSetPrinter
-                        GetQueueNameFromDevice
-                          SplAddPrinter
-                            AddPrinterForOfflinePrinteQueue
-                              CheckForOfflinePrinterQueues
-                                FUN_18004f76a
-          UpdateDsSpoolerKey
-            RecreateDsKey
-              SplAddPrinter
-                AddPrinterForOfflinePrinteQueue
-                  CheckForOfflinePrinterQueues
-                    FUN_18004f76a
-            RecreateDsKey
-              SplSetPrinter
-                GetQueueNameFromDevice
-                  SplAddPrinter
-                    AddPrinterForOfflinePrinteQueue
-                      CheckForOfflinePrinterQueues
-                        FUN_18004f76a
-          UpdateDsSpoolerKey
-            SplSetPrinter
-              GetQueueNameFromDevice
-                SplAddPrinter
-                  AddPrinterForOfflinePrinteQueue
-                    CheckForOfflinePrinterQueues
-                      FUN_18004f76a
-        SplSetPrinterDataEx
-          AddPrinterParam::SetRegistryData
-            SplAddPrinter
-              AddPrinterForOfflinePrinteQueue
-                CheckForOfflinePrinterQueues
-                  FUN_18004f76a
         SplSetPrinterDataEx
           SetMandatoryProperties
             UpdateDsSpoolerKey
               DsUpdatePrinter
                 DsUpdateSpooler
-                  DsUpdate
-                    SpawnDsUpdate
-                      DsUpdateAllDriverKeys
-                        InternalDeleteForm
-                    SpawnDsUpdate
-                      InitializeDS
-                        SplCreateSpooler
-                    SpawnDsUpdate
-                      SetPrinterDs
-                      DsUpdatePrinter
-                        RecreateDsKey
-                          SplAddPrinter
-                            AddPrinterForOfflinePrinteQueue
-                              CheckForOfflinePrinterQueues
-                                FUN_18004f76a
-                        RecreateDsKey
-                          SplSetPrinter
-                            GetQueueNameFromDevice
-                              SplAddPrinter
-                                AddPrinterForOfflinePrinteQueue
-                                  CheckForOfflinePrinterQueues
-                                    FUN_18004f76a
-                      SetPrinterDs
-                        SplDeletePrinterWithJobs
-                          AddPrinterForOfflinePrinteQueue
-                            CheckForOfflinePrinterQueues
-                              FUN_18004f76a
-                      SetPrinterDs
-                        SplSetPrinter
-                          GetQueueNameFromDevice
-                            SplAddPrinter
-                              AddPrinterForOfflinePrinteQueue
-                                CheckForOfflinePrinterQueues
-                                  FUN_18004f76a
             UpdateDsSpoolerKey
               RecreateDsKey
                 SplAddPrinter
-                  AddPrinterForOfflinePrinteQueue
-                    CheckForOfflinePrinterQueues
-                      FUN_18004f76a
               RecreateDsKey
                 SplSetPrinter
-                  GetQueueNameFromDevice
-                    SplAddPrinter
-                      AddPrinterForOfflinePrinteQueue
-                        CheckForOfflinePrinterQueues
-                          FUN_18004f76a
             UpdateDsSpoolerKey
               SplSetPrinter
                 GetQueueNameFromDevice
-                  SplAddPrinter
-                    AddPrinterForOfflinePrinteQueue
-                      CheckForOfflinePrinterQueues
-                        FUN_18004f76a
           SetMandatoryProperties
             PublishMandatoryProperties
               DsPrinterUpdate
                 DsPrinterPublish
-                  SetPrinterDs
-                    DsUpdatePrinter
-                      DsUpdateSpooler
-                        DsUpdate
-                          SpawnDsUpdate
-                            DsUpdateAllDriverKeys
-                              InternalDeleteForm
-                          SpawnDsUpdate
-                            InitializeDS
-                              SplCreateSpooler
-                          SpawnDsUpdate
-                          SetPrinterDs
-                  SetPrinterDs
-                    RecreateDsKey
-                      SplAddPrinter
-                        AddPrinterForOfflinePrinteQueue
-                          CheckForOfflinePrinterQueues
-                            FUN_18004f76a
-                    RecreateDsKey
-                      SplSetPrinter
-                        GetQueueNameFromDevice
-                          SplAddPrinter
-                            AddPrinterForOfflinePrinteQueue
-                              CheckForOfflinePrinterQueues
-                                FUN_18004f76a
-                  SetPrinterDs
-                    SplDeletePrinterWithJobs
-                      AddPrinterForOfflinePrinteQueue
-                        CheckForOfflinePrinterQueues
-                          FUN_18004f76a
-                  SetPrinterDs
-                    SplSetPrinter
-                      GetQueueNameFromDevice
-                        SplAddPrinter
-                          AddPrinterForOfflinePrinteQueue
-                            CheckForOfflinePrinterQueues
-                              FUN_18004f76a
+        SplSetPrinterDataEx
+          UpdateDsSpoolerKey
+            DsUpdatePrinter
+              DsUpdateSpooler
+                DsUpdate
+          UpdateDsSpoolerKey
+            RecreateDsKey
+              SplAddPrinter
+                AddPrinterForOfflinePrinteQueue
+              SplAddPrinter
+            RecreateDsKey
+              SplSetPrinter
+                GetQueueNameFromDevice
+          UpdateDsSpoolerKey
+            SplSetPrinter
+              GetQueueNameFromDevice
+                SplAddPrinter
         SplSetPrinterDataEx
           UpdateDsDriverKeyImpl
             DsUpdatePrinter
               DsUpdateSpooler
                 DsUpdate
-                  SpawnDsUpdate
-                    DsUpdateAllDriverKeys
-                      InternalDeleteForm
-                  SpawnDsUpdate
-                    InitializeDS
-                      SplCreateSpooler
-                  SpawnDsUpdate
-                    SetPrinterDs
-                    DsUpdatePrinter
-                      RecreateDsKey
-                        SplAddPrinter
-                          AddPrinterForOfflinePrinteQueue
-                            CheckForOfflinePrinterQueues
-                              FUN_18004f76a
-                      RecreateDsKey
-                        SplSetPrinter
-                          GetQueueNameFromDevice
-                            SplAddPrinter
-                              AddPrinterForOfflinePrinteQueue
-                                CheckForOfflinePrinterQueues
-                                  FUN_18004f76a
-                    SetPrinterDs
-                      SplDeletePrinterWithJobs
-                        AddPrinterForOfflinePrinteQueue
-                          CheckForOfflinePrinterQueues
-                            FUN_18004f76a
-                    SetPrinterDs
-                      SplSetPrinter
-                        GetQueueNameFromDevice
-                          SplAddPrinter
-                            AddPrinterForOfflinePrinteQueue
-                              CheckForOfflinePrinterQueues
-                                FUN_18004f76a
           UpdateDsDriverKeyImpl
             RecreateDsKey
               SplAddPrinter
                 AddPrinterForOfflinePrinteQueue
-                  CheckForOfflinePrinterQueues
-                    FUN_18004f76a
+              SplAddPrinter
             RecreateDsKey
               SplSetPrinter
                 GetQueueNameFromDevice
-                  SplAddPrinter
-                    AddPrinterForOfflinePrinteQueue
-                      CheckForOfflinePrinterQueues
-                        FUN_18004f76a
           UpdateDsDriverKeyImpl
             SplSetPrinter
               GetQueueNameFromDevice
                 SplAddPrinter
-                  AddPrinterForOfflinePrinteQueue
-                    CheckForOfflinePrinterQueues
-                      FUN_18004f76a
         SplSetPrinterDataEx
           DevCapMultiSz
             UpdateDsDriverKeyImpl
               DsUpdatePrinter
                 DsUpdateSpooler
-                  DsUpdate
-                    SpawnDsUpdate
-                      DsUpdateAllDriverKeys
-                        InternalDeleteForm
-                    SpawnDsUpdate
-                      InitializeDS
-                        SplCreateSpooler
-                    SpawnDsUpdate
-                      SetPrinterDs
-                      DsUpdatePrinter
-                        RecreateDsKey
-                          SplAddPrinter
-                            AddPrinterForOfflinePrinteQueue
-                              CheckForOfflinePrinterQueues
-                                FUN_18004f76a
-                        RecreateDsKey
-                          SplSetPrinter
-                            GetQueueNameFromDevice
-                              SplAddPrinter
-                                AddPrinterForOfflinePrinteQueue
-                                  CheckForOfflinePrinterQueues
-                                    FUN_18004f76a
-                      SetPrinterDs
-                        SplDeletePrinterWithJobs
-                          AddPrinterForOfflinePrinteQueue
-                            CheckForOfflinePrinterQueues
-                              FUN_18004f76a
-                      SetPrinterDs
-                        SplSetPrinter
-                          GetQueueNameFromDevice
-                            SplAddPrinter
-                              AddPrinterForOfflinePrinteQueue
-                                CheckForOfflinePrinterQueues
-                                  FUN_18004f76a
             UpdateDsDriverKeyImpl
               RecreateDsKey
                 SplAddPrinter
-                  AddPrinterForOfflinePrinteQueue
-                    CheckForOfflinePrinterQueues
-                      FUN_18004f76a
               RecreateDsKey
                 SplSetPrinter
-                  GetQueueNameFromDevice
-                    SplAddPrinter
-                      AddPrinterForOfflinePrinteQueue
-                        CheckForOfflinePrinterQueues
-                          FUN_18004f76a
             UpdateDsDriverKeyImpl
               SplSetPrinter
                 GetQueueNameFromDevice
-                  SplAddPrinter
-                    AddPrinterForOfflinePrinteQueue
-                      CheckForOfflinePrinterQueues
-                        FUN_18004f76a
+        SplSetPrinterDataEx
+          AddPrinterParam::SetRegistryData
+            SplAddPrinter
+              AddPrinterForOfflinePrinteQueue
+                CheckForOfflinePrinterQueues
+            SplAddPrinter
       SplGetPrinterData
         InternalStartDocPrinter
       SplGetPrinterData
@@ -323,998 +108,1017 @@ root((SplGetPrinterDriverEx))
 ```mermaid
 mindmap
 root((SplGetPrinterDriverEx))
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
-      operator_struct__INIMONITOR*___ptr64
-      MSVCRT.DLL::_wcsicmp
-      API-MS-WIN-CORE-PROFILE-L1-1-0.DLL::QueryPerformanceCounter
-      memcpy
-        MSVCRT.DLL::memcpy
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
-      PrinterNonRegGetHardwareId
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
-        MSVCRT.DLL::_wcsicmp
-        StatusFromHResult
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
-        operator_new
-        EnterSplSem
-        WPP_SF_Sd
-        `vector_constructor_iterator'
-        Wait
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
-        StringCbCopyW
-        TRefPtrCOM<struct_IBidiRequest>
-        GetLastErrorAsFailHR
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
-        InitPreferMultithreaded
-        Reset
-        WPP_SF_SSd
-        ~CoalescedSleep
-        WPP_SF_SS
-        vFree
-        Update
-        LeaveSplSem
-        _guard_xfg_dispatch_icall_nop
-      Release
-        _guard_xfg_dispatch_icall_nop
-      SeekPrinterSetEvent
-        API-MS-WIN-CORE-FILE-L1-1-0.DLL::GetFileSizeEx
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-      WPP_SF_D
-        NTDLL.DLL::EtwTraceMessage
-      SetPortErrorEvent
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      EnterSplSem
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
-      CheckJobStatusChange
-        API-MS-WIN-CORE-PROFILE-L1-1-0.DLL::QueryPerformanceCounter
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
       LeaveSplSem
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
         API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
         API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
         API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
-      SetPrinterChange
-        GetInfoData
-        SPOOLSS.DLL::PartialReplyPrinterChangeNotification
-        SPOOLSS.DLL::ReplyPrinterChangeNotification
-        MapToPrinterQueueStatus
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        UpdatePrinterIni
-        SPOOLSS.DLL::DllFreeSplMem
-      API-MS-WIN-CORE-FILE-L1-1-0.DLL::GetFileSizeEx
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-      NTDLL.DLL::EtwTraceMessage
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
-      LeaveSplSem
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
       FUN_1800521e1
-        PrinterNonRegGetHardwareId
         WPP_SF_qDd
+        PrinterNonRegGetHardwareId
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+      API-MS-WIN-CORE-FILE-L1-1-0.DLL::GetFileSizeEx
+      operator_struct__INIMONITOR*___ptr64
       CheckJobStatusChange
         API-MS-WIN-CORE-PROFILE-L1-1-0.DLL::QueryPerformanceCounter
       SetPrinterChange
-        GetInfoData
-        SPOOLSS.DLL::PartialReplyPrinterChangeNotification
-        SPOOLSS.DLL::ReplyPrinterChangeNotification
-        MapToPrinterQueueStatus
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        UpdatePrinterIni
+        SPOOLSS.DLL::PartialReplyPrinterChangeNotification
         SPOOLSS.DLL::DllFreeSplMem
+        SPOOLSS.DLL::ReplyPrinterChangeNotification
+        GetInfoData
+        MapToPrinterQueueStatus
+        UpdatePrinterIni
+      WPP_SF_
+        NTDLL.DLL::EtwTraceMessage
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+      KERNEL32.DLL::GetTickCount64
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::GetCurrentThreadId
+      StopTimer
+        WPP_SF_
+        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::SetThreadpoolTimer
+        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::WaitForThreadpoolTimerCallbacks
+        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CloseThreadpoolTimer
       ~Completer
-        <lambda_invoker_cdecl>
         get
+        <lambda_invoker_cdecl>
         _guard_xfg_dispatch_icall_nop
-      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::InitOnceBeginInitialize
       atexit
         _onexit
       API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::InitOnceBeginInitialize
-      _guard_xfg_dispatch_icall_nop
-        _guard_dispatch_icall
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::GetCurrentThreadId
-      StopTimer
-        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::SetThreadpoolTimer
-        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CloseThreadpoolTimer
-        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::WaitForThreadpoolTimerCallbacks
-        WPP_SF_
-      KERNEL32.DLL::GetTickCount64
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      WPP_SF_
-        NTDLL.DLL::EtwTraceMessage
-      MSVCRT.DLL::_wcsnicmp
-      StringCbCopyW
-      Update
-        FUN_18001fe54
-        FUN_180055b38
-        operator_new
-        operator_delete
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
-      EnterSplSem
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      WPP_SF_SSd
-        NTDLL.DLL::EtwTraceMessage
-      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
-      MSVCRT.DLL::_wcsicmp
-      WPP_SF_SS
-        NTDLL.DLL::EtwTraceMessage
-      operator_new
-        malloc
-        _callnewh
-      InitPreferMultithreaded
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoInitializeEx
-      Reset
-        ~TRefPtrCOM<struct_IBidiRequest>
-        `vector_destructor_iterator'
-        operator_delete
-      ~CoalescedSleep
-        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CloseThreadpoolTimer
-        API-MS-WIN-CORE-HANDLE-L1-1-0.DLL::CloseHandle
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::DeleteCriticalSection
-      GetLastErrorAsFailHR
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      vFree
-        operator_delete
-      StatusFromHResult
-      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
-      TRefPtrCOM<struct_IBidiRequest>
-      LeaveSplSem
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      Wait
-        SleepTimerCallback
-        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::SetThreadpoolTimer
-        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CreateThreadpoolTimer
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::GetCurrentThreadId
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::CreateEventW
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoWaitForMultipleHandles
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      _guard_xfg_dispatch_icall_nop
-        _guard_dispatch_icall
-      WPP_SF_Sd
-        NTDLL.DLL::EtwTraceMessage
-      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
-      `vector_constructor_iterator'
-        _guard_xfg_dispatch_icall_nop
-      NTDLL.DLL::EtwTraceMessage
-      __security_check_cookie
-        __report_gsfailure
       _tlgWriteTransfer_EventWriteTransfer
         API-MS-WIN-EVENTING-PROVIDER-L1-1-0.DLL::EventWriteTransfer
-      GetIniPrintProc
-        IsXPS2GDI
-      ShouldGetMasqDataForHandle
-      EnterSplSem
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+      __security_check_cookie
+        __report_gsfailure
+      _guard_dispatch_icall
+      API-MS-WIN-CORE-PROFILE-L1-1-0.DLL::QueryPerformanceCounter
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+      memcpy
+        MSVCRT.DLL::memcpy
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
       API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      WPP_SF_SS
-        NTDLL.DLL::EtwTraceMessage
-      ValidateSpoolHandle
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      LogSetJobCompleted
-        _tlgKeywordOn
-        get
-        <lambda_invoker_cdecl>
-        Write<struct__tlgWrapperByVal<8>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByRef<16>,struct__tlgWrapperByVal<4>,struct__tlgWrapSz<unsigned_short>,struct__tlgWrapSz<unsigned_short>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByVal<4>,struct__tlgWrapSz<unsigned_short>,struct__tlgWrapSz<unsigned_short>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByVal<4>_>
+      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      RetainJob
+        CheckJobStatusChange
+        PrinterNonRegGetHardwareId
+        WPP_SF_qDSSSD
+        SetPrinterChange
       ~_TELEMETRY_JOB_INFO
         SPOOLSS.DLL::DllFreeSplStr
         API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
         API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      __security_check_cookie
-        __report_gsfailure
-      SplLogJobDiagEvent
-        NTDLL.DLL::EtwEventWrite
-        __security_check_cookie
-        NTDLL.DLL::EtwEventEnabled
-      IsXPS2GDI
-        MSVCRT.DLL::_wcsicmp
-      RestartJob
-        SeekPrinterSetEvent
-        SetPortErrorEvent
-        SPOOLSS.DLL::DllFreeSplStr
-        EnterSplSem
-        CheckJobStatusChange
-        LeaveSplSem
-        FindIniKey
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        SetPrinterChange
-        _guard_xfg_dispatch_icall_nop
-      IsXPS2GDI
-        MSVCRT.DLL::_wcsicmp
-      CheckJobStatusChange
-        API-MS-WIN-CORE-PROFILE-L1-1-0.DLL::QueryPerformanceCounter
-      WPP_SF_dDD
-        NTDLL.DLL::EtwTraceMessage
-      ReleaseJob
-        PrinterNonRegGetHardwareId
-        WPP_SF_qDSSSD
-        ReleaseRetainedRef
-        WPP_SF_qDSSS
-        SetPrinterChange
-      DeleteJob
-      DeleteJobCheck
-      RetainJob
-        PrinterNonRegGetHardwareId
-        WPP_SF_qDSSSD
-        CheckJobStatusChange
-        SetPrinterChange
-      FindServerJob
-        FindJob
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-      SPOOLSS.DLL::SetJobW
-      ValidateObjectAccess
-        GetTokenHandle
-        API-MS-WIN-CORE-HANDLE-L1-1-0.DLL::CloseHandle
-        ValidateObjectAccessWithToken
-      PrinterNonRegGetHardwareId
-        Update
-        MSVCRT.DLL::_wcsicmp
-        StringCbCopyW
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
-        EnterSplSem
-        GetLastErrorAsFailHR
-        WPP_SF_SS
-        InitPreferMultithreaded
-        TRefPtrCOM<struct_IBidiRequest>
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
-        operator_new
-        `vector_constructor_iterator'
-        Reset
-        StatusFromHResult
-        ~CoalescedSleep
-        vFree
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
-        WPP_SF_SSd
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
-        Wait
-        WPP_SF_Sd
-        LeaveSplSem
-        _guard_xfg_dispatch_icall_nop
-      ValidRawDatatype
-        MSVCRT.DLL::_wcsnicmp
-      SPOOLSS.DLL::AllocSplStr
-      PauseJob
-        PrinterNonRegGetHardwareId
-        GetIniPrintProc
-        LogJobInfo
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-        EnterSplSem
-        ControlPrintProcessor
-        CheckJobStatusChange
-        LeaveSplSem
-        WriteShadowJob
-        WPP_SF_SD
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-        GetSpoolerNumericPolicy
+      SPOOLSS.DLL::DllFreeSplStr
       SetLocalJob
-        CircularChainedJobsList
-        FindIniKey
-        MapJobStatus
+        CheckDataTypes
         ValidateJobTimes
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        CheckJobStatusChange
+        DeleteJobCheck
+        IsXPS2GDI
+        WriteShadowJob
         ValidateObjectAccess
         FUN_18000bbb3
-        IsXpsPrintProcessor
-        PrinterNonRegGetHardwareId
-        GMT2AdjustedGMTIfDST
-        UpdateString
-        SetJobPosition
-        MSVCRT.DLL::_wcsicmp
-        IsXPS2GDI
         AccessGranted
+        IsXpsPrintProcessor
+        SetJobPosition
+        FindIniKey
+        UpdateString
+        CircularChainedJobsList
+        PrinterNonRegGetHardwareId
         AllowAccessToLocalSystemAndDelegatedPrintAdmins
-        CheckJobStatusChange
-        FindJob
-        DeleteJobCheck
-        WriteShadowJob
         WPP_SF_dD
-        CheckDataTypes
-        SetPrinterChange
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      SPOOLSS.DLL::DllFreeSplStr
-      FindJob
-      LeaveSplSem
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      SetPrinterChange
-        GetInfoData
-        SPOOLSS.DLL::PartialReplyPrinterChangeNotification
-        SPOOLSS.DLL::ReplyPrinterChangeNotification
-        MapToPrinterQueueStatus
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        UpdatePrinterIni
-        SPOOLSS.DLL::DllFreeSplMem
-      ResumeJob
-        GetIniPrintProc
-        LogJobInfo
-        EnterSplSem
-        GetSpoolerNumericPolicy
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        PrinterNonRegGetHardwareId
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-        WriteShadowJob
-        CheckJobStatusChange
-        LeaveSplSem
-        ControlPrintProcessor
-        WPP_SF_SD
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      memset
-        MSVCRT.DLL::memset
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      _guard_dispatch_icall
-      GetInfoData
-        CanUserSeeRealDocName
-        GetPrinterPorts
-        API-MS-WIN-SECURITY-BASE-L1-1-0.DLL::GetSecurityDescriptorLength
+        MapJobStatus
         FindJob
-        SPOOLSS.DLL::DllAllocSplMem
-      SPOOLSS.DLL::PartialReplyPrinterChangeNotification
-      SPOOLSS.DLL::ReplyPrinterChangeNotification
-      MapToPrinterQueueStatus
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-      SetPrinterChange
-      UpdatePrinterIni
-        EnterSplSem
-        EnterSplSemAndRestoreCount
-        NTDLL.DLL::RtlLengthSid
+        MSVCRT.DLL::_wcsicmp
         API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        SPOOLSS.DLL::ImpersonatePrinterClient
-        SPOOLSS.DLL::RevertToPrinterSelf
-        RegSetBinaryData
-        LogPrinterStatusChange
-        CloneIniSpooler
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-        PrinterCreateKey
-        WPP_SF_qd
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-        RegSetDWord
-        LeaveSplSemAndResetCount
-        WPP_SF_D
-        CloneIniPrinter
-        GetPrinterPorts
-        SubChar
-        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCloseKey
-        PrinterNonRegGetHardwareId
-        SPOOLSS.DLL::AllocSplStr
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        SPOOLSS.DLL::DllFreeSplStr
-        API-MS-WIN-SECURITY-BASE-L1-1-0.DLL::GetSecurityDescriptorLength
-        FreeClonedIniPrinterWithMask
-        RegSetString
-        LeaveSplSem
-        SplDeleteSpooler
-        API-MS-WIN-CORE-SYSINFO-L1-1-0.DLL::GetTickCount
-        _guard_xfg_dispatch_icall_nop
-        SPOOLSS.DLL::DllAllocSplMem
-        SPOOLSS.DLL::DllFreeSplMem
-      SPOOLSS.DLL::DllFreeSplMem
-      StringCchCopyA
-      ValidateFormAccess
-        SPOOLSS.DLL::CheckLocalCall
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        ValidateAccess
-      API-MS-WIN-CORE-LIBRARYLOADER-L1-2-0.DLL::LoadStringW
-      BuildResourceName
-        StringCchCopyW
-        __security_check_cookie
-        StringCchPrintfW
-        SPOOLSS.DLL::DllAllocSplMem
-      API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegOpenKeyExW
-      API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCloseKey
-      StringCbCopyW
-      HashName
-        API-MS-WIN-CORE-STRING-L2-1-0.DLL::CharLowerW
-      API-MS-WIN-CORE-LOCALIZATION-L1-2-0.DLL::GetThreadUILanguage
+        GMT2AdjustedGMTIfDST
+        SetPrinterChange
+      IsXPS2GDI
+        MSVCRT.DLL::_wcsicmp
       __security_check_cookie
         __report_gsfailure
-      CreateNode
-        SPOOLSS.DLL::AllocSplStr
-        SPOOLSS.DLL::DllAllocSplMem
-      FreeLangPair
-        SPOOLSS.DLL::DllFreeSplStr
-        SPOOLSS.DLL::DllFreeSplMem
-      CreateIniFormInternal
-        CreateIniForm
-      RegistryGetFormInfo2
-        WPP_SF_D
-        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegOpenKeyExW
-        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCloseKey
-        PrinterNonRegGetHardwareId
-        memset
-        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegQueryValueExW
-        __security_check_cookie
-        CreateNode
-        FreeLangPair
-        SplRegEnumValue
-        WPP_SF_SD
-        SPOOLSS.DLL::DllAllocSplMem
-        MSVCRT.DLL::_wtoi
-        SPOOLSS.DLL::DllFreeSplMem
-      SplRegEnumValue
-        PrinterNonRegGetHardwareId
-        WPP_SF_D
-        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegEnumValueW
-      SPOOLSS.DLL::DllAllocSplMem
-      SPOOLSS.DLL::DllFreeSplMem
-      SPOOLSS.DLL::AllocSplStr
-      SPOOLSS.DLL::DllFreeSplStr
-      MSVCRT.DLL::wcschr
-      MSVCRT.DLL::_wtoi
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+      ValidateObjectAccess
+        API-MS-WIN-CORE-HANDLE-L1-1-0.DLL::CloseHandle
+        ValidateObjectAccessWithToken
+        GetTokenHandle
       API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      FUN_180002f77
-        API-MS-WIN-CORE-LOCALIZATION-L1-2-0.DLL::GetThreadUILanguage
-        __security_check_cookie
-        API-MS-WIN-CORE-STRING-L2-1-1.DLL::SHLoadIndirectString
-        SPOOLSS.DLL::PackStrings
-      API-MS-WIN-CORE-LOCALIZATION-L1-2-0.DLL::GetThreadUILanguage
-      SPOOLSS.DLL::DllFreeSplStr
-      memcpy
-        MSVCRT.DLL::memcpy
-      MSVCRT.DLL::wcschr
-      SPOOLSS.DLL::PackStrings
-      SPOOLSS.DLL::DllAllocSplMem
-      MSVCRT.DLL::_wtoi
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
-      WPP_SF_SS
+      DeleteJob
+      GetIniPrintProc
+        IsXPS2GDI
+      ShouldGetMasqDataForHandle
+      WPP_SF_dDD
         NTDLL.DLL::EtwTraceMessage
-      MSVCRT.DLL::_wcsicmp
-      TRefPtrCOM<struct_IBidiRequest>
-      operator_new
-        _callnewh
-        malloc
-      EnterSplSem
+      ResumeJob
+        CheckJobStatusChange
+        EnterSplSem
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+        WriteShadowJob
+        WPP_SF_SD
+        ControlPrintProcessor
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        GetIniPrintProc
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        LeaveSplSem
+        PrinterNonRegGetHardwareId
+        LogJobInfo
+        GetSpoolerNumericPolicy
+      PauseJob
+        CheckJobStatusChange
+        LeaveSplSem
+        EnterSplSem
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+        PrinterNonRegGetHardwareId
+        WPP_SF_SD
+        WriteShadowJob
+        ControlPrintProcessor
+        LogJobInfo
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        GetSpoolerNumericPolicy
+        GetIniPrintProc
+      FindJob
+      CheckJobStatusChange
+        API-MS-WIN-CORE-PROFILE-L1-1-0.DLL::QueryPerformanceCounter
+      DeleteJobCheck
+        DeleteJob
+      EnterSplSem
         API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      vFree
-        operator_delete
-      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
-      WPP_SF_Sd
-        NTDLL.DLL::EtwTraceMessage
-      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
-      Reset
-        ~TRefPtrCOM<struct_IBidiRequest>
-        `vector_destructor_iterator'
-        operator_delete
-      Wait
-        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CreateThreadpoolTimer
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::GetCurrentThreadId
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoWaitForMultipleHandles
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::CreateEventW
-        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::SetThreadpoolTimer
-        SleepTimerCallback
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      WPP_SF_SSd
-        NTDLL.DLL::EtwTraceMessage
-      StringCbCopyW
-      `vector_constructor_iterator'
-        _guard_xfg_dispatch_icall_nop
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
-      GetLastErrorAsFailHR
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
         API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      InitPreferMultithreaded
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoInitializeEx
+        API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
+      FindServerJob
+        FindJob
+      RestartJob
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        SetPortErrorEvent
+        CheckJobStatusChange
+        SPOOLSS.DLL::DllFreeSplStr
+        LeaveSplSem
+        EnterSplSem
+        SeekPrinterSetEvent
+        FindIniKey
+        SetPrinterChange
+        _guard_xfg_dispatch_icall_nop
+      memset
+        MSVCRT.DLL::memset
+      ValidRawDatatype
+        MSVCRT.DLL::_wcsnicmp
+      IsXPS2GDI
+        MSVCRT.DLL::_wcsicmp
+      ValidateSpoolHandle
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+      ReleaseJob
+        WPP_SF_qDSSSD
+        PrinterNonRegGetHardwareId
+        WPP_SF_qDSSS
+        ReleaseRetainedRef
+        SetPrinterChange
+      SPOOLSS.DLL::SetJobW
+      LogSetJobCompleted
+        Write<struct__tlgWrapperByVal<8>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByRef<16>,struct__tlgWrapperByVal<4>,struct__tlgWrapSz<unsigned_short>,struct__tlgWrapSz<unsigned_short>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByVal<4>,struct__tlgWrapSz<unsigned_short>,struct__tlgWrapSz<unsigned_short>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByVal<4>,struct__tlgWrapperByVal<4>_>
+        <lambda_invoker_cdecl>
+        _tlgKeywordOn
+        get
+      LeaveSplSem
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      SplLogJobDiagEvent
+        __security_check_cookie
+        NTDLL.DLL::EtwEventEnabled
+        NTDLL.DLL::EtwEventWrite
+      PrinterNonRegGetHardwareId
+        StringCbCopyW
+        ~CoalescedSleep
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
+        InitPreferMultithreaded
+        EnterSplSem
+        WPP_SF_SSd
+        operator_new
+        TRefPtrCOM<struct_IBidiRequest>
+        Wait
+        Reset
+        WPP_SF_Sd
+        vFree
+        Update
+        LeaveSplSem
+        StatusFromHResult
+        GetLastErrorAsFailHR
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
+        `vector_constructor_iterator'
+        MSVCRT.DLL::_wcsicmp
+        _guard_xfg_dispatch_icall_nop
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
+        WPP_SF_SS
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      SetPrinterChange
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        SPOOLSS.DLL::PartialReplyPrinterChangeNotification
+        SPOOLSS.DLL::DllFreeSplMem
+        SPOOLSS.DLL::ReplyPrinterChangeNotification
+        GetInfoData
+        MapToPrinterQueueStatus
+        UpdatePrinterIni
+      SPOOLSS.DLL::AllocSplStr
+      WPP_SF_SS
+        NTDLL.DLL::EtwTraceMessage
+      MSVCRT.DLL::_wcsnicmp
+      SetPortErrorEvent
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+      CheckJobStatusChange
+        API-MS-WIN-CORE-PROFILE-L1-1-0.DLL::QueryPerformanceCounter
+      LeaveSplSem
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      EnterSplSem
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+        API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
+      PrinterNonRegGetHardwareId
+        StringCbCopyW
+        ~CoalescedSleep
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
+        InitPreferMultithreaded
+        EnterSplSem
+        WPP_SF_SSd
+        operator_new
+        TRefPtrCOM<struct_IBidiRequest>
+        Wait
+        Reset
+        WPP_SF_Sd
+        vFree
+        Update
+        LeaveSplSem
+        StatusFromHResult
+        GetLastErrorAsFailHR
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
+        `vector_constructor_iterator'
+        MSVCRT.DLL::_wcsicmp
+        _guard_xfg_dispatch_icall_nop
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
+        WPP_SF_SS
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      Release
+        _guard_xfg_dispatch_icall_nop
+      SeekPrinterSetEvent
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-FILE-L1-1-0.DLL::GetFileSizeEx
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      WPP_SF_D
+        NTDLL.DLL::EtwTraceMessage
+      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
+      SetPrinterChange
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        SPOOLSS.DLL::PartialReplyPrinterChangeNotification
+        SPOOLSS.DLL::DllFreeSplMem
+        SPOOLSS.DLL::ReplyPrinterChangeNotification
+        GetInfoData
+        MapToPrinterQueueStatus
+        UpdatePrinterIni
+      NTDLL.DLL::EtwTraceMessage
+      MSVCRT.DLL::_wcsicmp
+      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::InitOnceBeginInitialize
+      _guard_xfg_dispatch_icall_nop
+        _guard_dispatch_icall
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      NTDLL.DLL::EtwTraceMessage
+      StringCbCopyW
       ~CoalescedSleep
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::DeleteCriticalSection
         API-MS-WIN-CORE-HANDLE-L1-1-0.DLL::CloseHandle
         API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CloseThreadpoolTimer
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::DeleteCriticalSection
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
+      InitPreferMultithreaded
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoInitializeEx
+      EnterSplSem
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      WPP_SF_SSd
+        NTDLL.DLL::EtwTraceMessage
+      operator_new
+        malloc
+        _callnewh
+      TRefPtrCOM<struct_IBidiRequest>
+      Wait
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoWaitForMultipleHandles
+        SleepTimerCallback
+        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::SetThreadpoolTimer
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CreateThreadpoolTimer
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::CreateEventW
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::GetCurrentThreadId
+      Reset
+        operator_delete
+        `vector_destructor_iterator'
+        ~TRefPtrCOM<struct_IBidiRequest>
+      WPP_SF_Sd
+        NTDLL.DLL::EtwTraceMessage
+      vFree
+        operator_delete
       Update
-        operator_new
         FUN_180055b38
         FUN_18001fe54
         operator_delete
+        operator_new
       LeaveSplSem
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      StatusFromHResult
+      GetLastErrorAsFailHR
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
+      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
+      `vector_constructor_iterator'
+        _guard_xfg_dispatch_icall_nop
+      MSVCRT.DLL::_wcsicmp
       _guard_xfg_dispatch_icall_nop
         _guard_dispatch_icall
-      StatusFromHResult
-      SPOOLSS.DLL::AllocSplStr
-      API-MS-WIN-CORE-LOCALIZATION-L1-2-0.DLL::GetThreadUILanguage
-      SPOOLSS.DLL::DllFreeSplStr
-      MSVCRT.DLL::wcschr
+      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
+      WPP_SF_SS
+        NTDLL.DLL::EtwTraceMessage
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
+      SPOOLSS.DLL::PartialReplyPrinterChangeNotification
+      SPOOLSS.DLL::DllFreeSplMem
+      SPOOLSS.DLL::ReplyPrinterChangeNotification
+      GetInfoData
+        SPOOLSS.DLL::DllAllocSplMem
+        CanUserSeeRealDocName
+        GetPrinterPorts
+        FindJob
+        API-MS-WIN-SECURITY-BASE-L1-1-0.DLL::GetSecurityDescriptorLength
+      MapToPrinterQueueStatus
+      UpdatePrinterIni
+        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCloseKey
+        FreeClonedIniPrinterWithMask
+        SplDeleteSpooler
+        SPOOLSS.DLL::DllFreeSplStr
+        SPOOLSS.DLL::ImpersonatePrinterClient
+        API-MS-WIN-CORE-SYSINFO-L1-1-0.DLL::GetTickCount
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        PrinterCreateKey
+        WPP_SF_qd
+        SubChar
+        CloneIniSpooler
+        RegSetString
+        GetPrinterPorts
+        SPOOLSS.DLL::DllFreeSplMem
+        NTDLL.DLL::RtlLengthSid
+        _guard_xfg_dispatch_icall_nop
+        LogPrinterStatusChange
+        SPOOLSS.DLL::DllAllocSplMem
+        EnterSplSem
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+        LeaveSplSemAndResetCount
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        WPP_SF_D
+        RegSetDWord
+        LeaveSplSem
+        SPOOLSS.DLL::RevertToPrinterSelf
+        PrinterNonRegGetHardwareId
+        RegSetBinaryData
+        EnterSplSemAndRestoreCount
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        CloneIniPrinter
+        SPOOLSS.DLL::AllocSplStr
+        API-MS-WIN-SECURITY-BASE-L1-1-0.DLL::GetSecurityDescriptorLength
+      SetPrinterChange
+      FUN_180002c74
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
       FUN_1800031e4
         API-MS-WIN-CORE-STRING-L2-1-1.DLL::SHLoadIndirectString
         FUN_180053454
       MSVCRT.DLL::_wtoi
+      SPOOLSS.DLL::DllFreeSplStr
+      MSVCRT.DLL::wcschr
       SPOOLSS.DLL::AllocSplStr
+      API-MS-WIN-CORE-LOCALIZATION-L1-2-0.DLL::GetThreadUILanguage
+      FUN_180002f77
+        API-MS-WIN-CORE-STRING-L2-1-1.DLL::SHLoadIndirectString
+        SPOOLSS.DLL::PackStrings
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        SPOOLSS.DLL::DllFreeSplMem
+        __security_check_cookie
+      SPOOLSS.DLL::DllAllocSplMem
+      MSVCRT.DLL::_wtoi
+      SPOOLSS.DLL::DllFreeSplStr
+      MSVCRT.DLL::wcschr
+      SPOOLSS.DLL::PackStrings
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      memcpy
+        MSVCRT.DLL::memcpy
+      SPOOLSS.DLL::AllocSplStr
+      API-MS-WIN-CORE-LOCALIZATION-L1-2-0.DLL::GetThreadUILanguage
+      NTDLL.DLL::EtwTraceMessage
+      MSVCRT.DLL::_wtoi
+      SPOOLSS.DLL::DllFreeSplStr
+      MSVCRT.DLL::wcschr
+      API-MS-WIN-CORE-STRING-L2-1-1.DLL::SHLoadIndirectString
       __security_check_cookie
         __report_gsfailure
       API-MS-WIN-CORE-LOCALIZATION-L1-2-0.DLL::GetThreadUILanguage
-      API-MS-WIN-CORE-STRING-L2-1-1.DLL::SHLoadIndirectString
-      FUN_180002c74
+      SPOOLSS.DLL::AllocSplStr
       API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
       API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      NTDLL.DLL::EtwTraceMessage
-      FUN_180045457
-        StrCatAlloc
-        MSVCRT.DLL::_wcsicmp
-        EnterSplSem
-        vFree
-        SPOOLSS.DLL::ImpersonatePrinterClient
-        SetPrinterDataPrinter
-        API-MS-WIN-SECURITY-BASE-L1-1-0.DLL::MapGenericMask
-        SPOOLSS.DLL::RevertToPrinterSelf
-        Update
-        InternalGetPrinterDataFromPort
-        StatusFromHResult
-        WPP_SF_D
-        SplRegQueryValue
-        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCreateKeyExW
-        SPOOLSS.DLL::SplIsUpgrade
-        GetConfigDataEx
-        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCloseKey
-        API-MS-WIN-SECURITY-BASE-L1-1-0.DLL::AreAllAccessesGranted
-        PrinterNonRegGetHardwareId
-        SPOOLSS.DLL::DllFreeSplStr
-        __security_check_cookie
-        LeaveSplSem
-        WPP_SF_SD
-        _guard_xfg_dispatch_icall_nop
-        SPOOLSS.DLL::DllFreeSplMem
-        SPOOLSS.DLL::DllAllocSplMem
-      MSVCRT.DLL::_wcsicmp
-      SplRegQueryValue
-        FUN_180053fd8
-        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegQueryValueExW
-        memset
-      LeaveSpoolerLock
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      GetServerKeyHandle
-        SplRegCreateKey
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        CloseServerKeyHandle
-        SPOOLSS.DLL::ImpersonatePrinterClient
-        SPOOLSS.DLL::RevertToPrinterSelf
-      CloseServerKeyHandle
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        SPOOLSS.DLL::ImpersonatePrinterClient
-        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCloseKey
-        SPOOLSS.DLL::RevertToPrinterSelf
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      GetSeparatorPageData
-        API-MS-WIN-CORE-FILE-L1-1-0.DLL::ReadFile
-        __security_check_cookie
-        API-MS-WIN-CORE-HANDLE-L1-1-0.DLL::CloseHandle
-        API-MS-WIN-CORE-FILE-L1-1-0.DLL::CreateFileW
-        API-MS-WIN-CORE-FILE-L1-1-0.DLL::GetFileSizeEx
-        IsSepFilePathAllowed
-        API-MS-WIN-CORE-FILE-L1-1-0.DLL::GetFinalPathNameByHandleW
-        SPOOLSS.DLL::ImpersonatePrinterClient
-        SPOOLSS.DLL::RevertToPrinterSelf
       API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
       API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-      SplGetPrintProcCaps
-        operator_new
-        FUN_180053a73
-        FindDatatype
-        FUN_180004092
-        Cat
-        API-MS-WIN-CORE-STRING-L1-1-0.DLL::CompareStringW
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
-      SplGetNonRegData
-        memcpy
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-      MSVCRT.DLL::wcsstr
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
-      LeaveSplSem
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      StringCbCopyW
+      ~CoalescedSleep
+        API-MS-WIN-CORE-HANDLE-L1-1-0.DLL::CloseHandle
+        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CloseThreadpoolTimer
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::DeleteCriticalSection
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
+      InitPreferMultithreaded
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoInitializeEx
+      EnterSplSem
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+        API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
+      WPP_SF_SSd
+        NTDLL.DLL::EtwTraceMessage
+      operator_new
+        malloc
+        _callnewh
+      TRefPtrCOM<struct_IBidiRequest>
+      Wait
+        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CreateThreadpoolTimer
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::SetThreadpoolTimer
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::CreateEventW
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::GetCurrentThreadId
+        SleepTimerCallback
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoWaitForMultipleHandles
+      Reset
+        operator_delete
+        `vector_destructor_iterator'
+        ~TRefPtrCOM<struct_IBidiRequest>
+      WPP_SF_Sd
+        NTDLL.DLL::EtwTraceMessage
+      vFree
+        operator_delete
+      Update
+        FUN_180055b38
+        FUN_18001fe54
+        operator_delete
+        operator_new
+      LeaveSplSem
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      StatusFromHResult
+      GetLastErrorAsFailHR
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
+      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
+      `vector_constructor_iterator'
+        _guard_xfg_dispatch_icall_nop
+      MSVCRT.DLL::_wcsicmp
       _guard_xfg_dispatch_icall_nop
         _guard_dispatch_icall
-      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
+      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
+      WPP_SF_SS
+        NTDLL.DLL::EtwTraceMessage
+      StringCchCopyA
+      StringCbCopyW
+      SPOOLSS.DLL::DllAllocSplMem
+      API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCloseKey
+      HashName
+        API-MS-WIN-CORE-STRING-L2-1-0.DLL::CharLowerW
+      SplRegEnumValue
+        PrinterNonRegGetHardwareId
+        WPP_SF_D
+        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegEnumValueW
+      CreateNode
+        SPOOLSS.DLL::DllAllocSplMem
+        SPOOLSS.DLL::AllocSplStr
+      ValidateFormAccess
+        ValidateAccess
+        SPOOLSS.DLL::CheckLocalCall
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      FreeLangPair
+        SPOOLSS.DLL::DllFreeSplStr
+        SPOOLSS.DLL::DllFreeSplMem
+      RegistryGetFormInfo2
+        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCloseKey
+        SPOOLSS.DLL::DllAllocSplMem
+        MSVCRT.DLL::_wtoi
+        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegQueryValueExW
+        SplRegEnumValue
+        CreateNode
+        WPP_SF_SD
+        FreeLangPair
+        __security_check_cookie
+        WPP_SF_D
+        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegOpenKeyExW
+        PrinterNonRegGetHardwareId
+        SPOOLSS.DLL::DllFreeSplMem
+        memset
+      CreateIniFormInternal
+        CreateIniForm
+      __security_check_cookie
+        __report_gsfailure
+      API-MS-WIN-CORE-LOCALIZATION-L1-2-0.DLL::GetThreadUILanguage
+      API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegOpenKeyExW
+      BuildResourceName
+        StringCchCopyW
+        SPOOLSS.DLL::DllAllocSplMem
+        StringCchPrintfW
+        __security_check_cookie
+      SPOOLSS.DLL::DllFreeSplMem
+      API-MS-WIN-CORE-LIBRARYLOADER-L1-2-0.DLL::LoadStringW
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
       API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      NTDLL.DLL::EtwTraceMessage
-      memset
-        MSVCRT.DLL::memset
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
+      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
       API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegQueryValueExW
       FUN_180053fd8
         PrinterNonRegGetHardwareId
         WPP_SF_D
-      SplRegCreateKey
-        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCreateKeyExW
-        PrinterNonRegGetHardwareId
-        WPP_SF_D
-      SPOOLSS.DLL::DllFreeSplStr
+      memset
+        MSVCRT.DLL::memset
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
       API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegOpenKeyExW
       StrCatAlloc
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
         SPOOLSS.DLL::DllAllocSplMem
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      SubChar
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        SPOOLSS.DLL::DllAllocSplMem
+      SPOOLSS.DLL::DllFreeSplStr
+      SplRegCreateKey
+        PrinterNonRegGetHardwareId
+        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCreateKeyExW
+        WPP_SF_D
       SPOOLSS.DLL::DllFreeSplMem
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      SubChar
+        SPOOLSS.DLL::DllAllocSplMem
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
       API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
-      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
       operator_delete
         free
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
       API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      MSVCRT.DLL::wcscmp
+      FUN_180055b38
+        FUN_18001fe54
+        operator_delete
+      FUN_18001fe54
+        operator_delete
+      operator_delete
+        free
+      operator_new
+        malloc
+        _callnewh
+      StringCbCopyW
+      ~CoalescedSleep
+        API-MS-WIN-CORE-HANDLE-L1-1-0.DLL::CloseHandle
+        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CloseThreadpoolTimer
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::DeleteCriticalSection
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
+      InitPreferMultithreaded
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoInitializeEx
+      EnterSplSem
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+        API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
+      WPP_SF_SSd
+        NTDLL.DLL::EtwTraceMessage
+      operator_new
+        malloc
+        _callnewh
+      TRefPtrCOM<struct_IBidiRequest>
+      Wait
+        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CreateThreadpoolTimer
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::SetThreadpoolTimer
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::CreateEventW
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::GetCurrentThreadId
+        SleepTimerCallback
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoWaitForMultipleHandles
+      Reset
+        operator_delete
+        `vector_destructor_iterator'
+        ~TRefPtrCOM<struct_IBidiRequest>
+      WPP_SF_Sd
+        NTDLL.DLL::EtwTraceMessage
+      vFree
+        operator_delete
+      Update
+        FUN_180055b38
+        FUN_18001fe54
+        operator_delete
+        operator_new
+      LeaveSplSem
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      StatusFromHResult
+      GetLastErrorAsFailHR
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
+      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
+      `vector_constructor_iterator'
+        _guard_xfg_dispatch_icall_nop
+      MSVCRT.DLL::_wcsicmp
+      _guard_xfg_dispatch_icall_nop
+        _guard_dispatch_icall
+      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
+      WPP_SF_SS
+        NTDLL.DLL::EtwTraceMessage
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
       API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
       API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
       API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
       API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
       API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
+      CreateConfigProviderHandle
+        SPOOLSS.DLL::DllFreeSplStr
+        API-MS-WIN-CORE-LIBRARYLOADER-L1-2-0.DLL::GetProcAddress
+        EnterSplSem
+        API-MS-WIN-CORE-LIBRARYLOADER-L1-2-1.DLL::LoadLibraryW
+        GetConfigFilePath
+        API-MS-WIN-CORE-STRING-L2-1-0.DLL::CharLowerW
+        PrintCrackName
+        bUpdate
+        operator_new
+        FastStrcmpi
+        vFree
+        StatusFromHResult
+        LeaveSplSem
+        Reset
+        API-MS-WIN-CORE-STRING-OBSOLETE-L1-1-0.DLL::lstrcmpiW
+        _guard_xfg_dispatch_icall_nop
+        CopyFrom
       `scalar_deleting_destructor'
         operator_delete
         Reset
-      CreateConfigProviderHandle
-        Reset
-        operator_new
-        vFree
-        EnterSplSem
-        API-MS-WIN-CORE-STRING-L2-1-0.DLL::CharLowerW
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        PrintCrackName
-        API-MS-WIN-CORE-LIBRARYLOADER-L1-2-0.DLL::GetProcAddress
-        CopyFrom
-        SPOOLSS.DLL::DllFreeSplStr
-        bUpdate
-        GetConfigFilePath
-        API-MS-WIN-CORE-LIBRARYLOADER-L1-2-1.DLL::LoadLibraryW
-        LeaveSplSem
-        API-MS-WIN-CORE-STRING-OBSOLETE-L1-1-0.DLL::lstrcmpiW
-        _guard_xfg_dispatch_icall_nop
-        StatusFromHResult
-        FastStrcmpi
       _guard_xfg_dispatch_icall_nop
         _guard_dispatch_icall
-      `vector_constructor_iterator'
-        _guard_xfg_dispatch_icall_nop
-      Reset
-        operator_delete
-        ~TRefPtrCOM<struct_IBidiRequest>
-        `vector_destructor_iterator'
-      MSVCRT.DLL::_wcsicmp
-      operator_new
-        _callnewh
-        malloc
-      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
-      StringCbCopyW
-      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
-      EnterSplSem
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+      NTDLL.DLL::EtwTraceMessage
+      LeaveSpoolerLock
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      ~CoalescedSleep
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::DeleteCriticalSection
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+      GetSeparatorPageData
+        API-MS-WIN-CORE-FILE-L1-1-0.DLL::GetFinalPathNameByHandleW
+        SPOOLSS.DLL::ImpersonatePrinterClient
+        SPOOLSS.DLL::RevertToPrinterSelf
         API-MS-WIN-CORE-HANDLE-L1-1-0.DLL::CloseHandle
-        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CloseThreadpoolTimer
+        API-MS-WIN-CORE-FILE-L1-1-0.DLL::GetFileSizeEx
+        API-MS-WIN-CORE-FILE-L1-1-0.DLL::ReadFile
+        __security_check_cookie
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        API-MS-WIN-CORE-FILE-L1-1-0.DLL::CreateFileW
+        IsSepFilePathAllowed
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+      SplRegQueryValue
+        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegQueryValueExW
+        FUN_180053fd8
+        memset
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
+      SplGetPrintProcCaps
+        Cat
+        API-MS-WIN-CORE-STRING-L1-1-0.DLL::CompareStringW
+        FUN_180053a73
+        FindDatatype
+        FUN_180004092
+        operator_new
+      LeaveSplSem
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      FUN_180045457
+        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCloseKey
+        SPOOLSS.DLL::DllFreeSplStr
+        StrCatAlloc
+        SPOOLSS.DLL::ImpersonatePrinterClient
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        InternalGetPrinterDataFromPort
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+        __security_check_cookie
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+        API-MS-WIN-SECURITY-BASE-L1-1-0.DLL::MapGenericMask
+        vFree
+        SPOOLSS.DLL::SplIsUpgrade
+        SPOOLSS.DLL::DllFreeSplMem
+        MSVCRT.DLL::_wcsicmp
+        _guard_xfg_dispatch_icall_nop
+        SPOOLSS.DLL::DllAllocSplMem
+        EnterSplSem
+        WPP_SF_SD
+        SplRegQueryValue
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        WPP_SF_D
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCreateKeyExW
+        LeaveSplSem
+        SetPrinterDataPrinter
+        StatusFromHResult
+        Update
+        SPOOLSS.DLL::RevertToPrinterSelf
+        PrinterNonRegGetHardwareId
+        API-MS-WIN-SECURITY-BASE-L1-1-0.DLL::AreAllAccessesGranted
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        GetConfigDataEx
+      MSVCRT.DLL::wcsstr
+      GetServerKeyHandle
+        SPOOLSS.DLL::ImpersonatePrinterClient
+        SPOOLSS.DLL::RevertToPrinterSelf
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        SplRegCreateKey
+        CloseServerKeyHandle
+      SplGetNonRegData
+        memcpy
+      MSVCRT.DLL::_wcsicmp
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      _guard_xfg_dispatch_icall_nop
+        _guard_dispatch_icall
+      API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
+      CloseServerKeyHandle
+        API-MS-WIN-CORE-REGISTRY-L1-1-0.DLL::RegCloseKey
+        SPOOLSS.DLL::ImpersonatePrinterClient
+        SPOOLSS.DLL::RevertToPrinterSelf
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
       vFree
         operator_delete
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
-      WPP_SF_Sd
-        NTDLL.DLL::EtwTraceMessage
-      GetLastErrorAsFailHR
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      WPP_SF_SSd
-        NTDLL.DLL::EtwTraceMessage
-      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
-      WPP_SF_SS
-        NTDLL.DLL::EtwTraceMessage
-      Update
-        operator_delete
-        FUN_180055b38
-        FUN_18001fe54
-        operator_new
-      InitPreferMultithreaded
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoInitializeEx
-      LeaveSplSem
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      Wait
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::CreateEventW
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoWaitForMultipleHandles
-        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::SetThreadpoolTimer
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::GetCurrentThreadId
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        SleepTimerCallback
-        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CreateThreadpoolTimer
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      _guard_xfg_dispatch_icall_nop
-        _guard_dispatch_icall
-      TRefPtrCOM<struct_IBidiRequest>
-      StatusFromHResult
-      MSVCRT.DLL::wcscmp
-      operator_delete
-        free
-      FUN_180055b38
-        operator_delete
-        FUN_18001fe54
-      FUN_18001fe54
-        operator_delete
+      StringCchCopyW
+      StringCchCopyExW
+        memset
+        StringExHandleOtherFlagsW
+        StringCopyWorkerW
       operator_new
         _callnewh
         malloc
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      _callnewh
-        MSVCRT.DLL::_callnewh
-      malloc
-        MSVCRT.DLL::malloc
       operator_delete
         free
       FUN_180004092
-        operator_delete
         FUN_180053aba
-        operator_new
         FUN_1800040b7
-      FUN_1800035f8
-      API-MS-WIN-CORE-STRING-OBSOLETE-L1-1-0.DLL::lstrcmpiW
-      FUN_1800536c5
-        MSVCRT.DLL::_wcsicmp
+        operator_delete
+        operator_new
+      FUN_180053aba
+        FUN_180053aee
+        FUN_1800040b7
+      FUN_1800040b7
+        FUN_180053b15
+        operator_delete
+        FUN_1800040dc
+        operator_new
       operator_delete
         free
-      FUN_180053aba
-        FUN_1800040b7
-        FUN_180053aee
       operator_new
         malloc
         _callnewh
-      FUN_1800040b7
-        operator_delete
-        FUN_180053b15
-        operator_new
-        FUN_1800040dc
-      operator_new
-        malloc
-        _callnewh
-      vFree
-        operator_delete
-      StringCchCopyExW
-        StringExHandleOtherFlagsW
-        memset
-        StringCopyWorkerW
-      StringCchCopyW
-      NTDLL.DLL::EtwTraceMessage
-      PrinterNonRegGetHardwareId
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
-        TRefPtrCOM<struct_IBidiRequest>
-        operator_new
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
+      API-MS-WIN-CORE-STRING-OBSOLETE-L1-1-0.DLL::lstrcmpiW
+      FUN_1800536c5
+        FUN_1800035f8
         MSVCRT.DLL::_wcsicmp
-        EnterSplSem
-        Wait
-        Reset
-        GetLastErrorAsFailHR
-        `vector_constructor_iterator'
-        ~CoalescedSleep
-        vFree
-        WPP_SF_SSd
-        Update
-        WPP_SF_Sd
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
-        StringCbCopyW
-        LeaveSplSem
-        WPP_SF_SS
-        _guard_xfg_dispatch_icall_nop
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
-        StatusFromHResult
-        InitPreferMultithreaded
+      FUN_1800035f8
+      malloc
+        MSVCRT.DLL::malloc
+      _callnewh
+        MSVCRT.DLL::_callnewh
+      API-MS-WIN-CORE-STRING-OBSOLETE-L1-1-0.DLL::lstrcmpiW
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+      FindDriverEntry
+        FastStrcmpi
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+      CopyIniDriverToDriverInfo
+        WPP_SF_
+        PrinterNonRegGetHardwareId
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        CopyIniDriverToDriverInfoVersion
+        caseD_1
+      LeaveSplSem
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
       WPP_SF_
         NTDLL.DLL::EtwTraceMessage
+      PrinterNonRegGetHardwareId
+        StringCbCopyW
+        ~CoalescedSleep
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
+        InitPreferMultithreaded
+        EnterSplSem
+        WPP_SF_SSd
+        operator_new
+        TRefPtrCOM<struct_IBidiRequest>
+        Wait
+        Reset
+        WPP_SF_Sd
+        vFree
+        Update
+        LeaveSplSem
+        StatusFromHResult
+        GetLastErrorAsFailHR
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
+        `vector_constructor_iterator'
+        MSVCRT.DLL::_wcsicmp
+        _guard_xfg_dispatch_icall_nop
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
+        WPP_SF_SS
       API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
       API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
       GetDriverInfoSize
         FUN_180054066
-      LeaveSplSem
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
       API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-      CopyIniDriverToDriverInfo
-        PrinterNonRegGetHardwareId
-        WPP_SF_
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        caseD_1
-        CopyIniDriverToDriverInfoVersion
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
       API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
       NTDLL.DLL::EtwTraceMessage
-      API-MS-WIN-CORE-STRING-OBSOLETE-L1-1-0.DLL::lstrcmpiW
-      InitPreferMultithreaded
-        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoInitializeEx
-      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
-      GetLastErrorAsFailHR
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      vFree
-        operator_delete
-      MSVCRT.DLL::_wcsicmp
-      Update
-        FUN_180055b38
-        operator_delete
-        operator_new
-        FUN_18001fe54
-      EnterSplSem
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-        API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      WPP_SF_SSd
-        NTDLL.DLL::EtwTraceMessage
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
-      operator_new
-        malloc
-        _callnewh
-      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
+      StringCbCopyW
       ~CoalescedSleep
         API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CloseThreadpoolTimer
         API-MS-WIN-CORE-HANDLE-L1-1-0.DLL::CloseHandle
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::DeleteCriticalSection
-      WPP_SF_Sd
+      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::InitializeCriticalSectionAndSpinCount
+      InitPreferMultithreaded
+        API-MS-WIN-CORE-COM-L1-1-0.DLL::CoInitializeEx
+      EnterSplSem
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::WaitForSingleObject
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::ResetEvent
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+        API-MS-WIN-CORE-SYNCH-L1-2-0.DLL::Sleep
+      WPP_SF_SSd
         NTDLL.DLL::EtwTraceMessage
-      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
+      operator_new
+        malloc
+        _callnewh
       TRefPtrCOM<struct_IBidiRequest>
-      `vector_constructor_iterator'
-        _guard_xfg_dispatch_icall_nop
       Wait
         API-MS-WIN-CORE-COM-L1-1-0.DLL::CoWaitForMultipleHandles
-        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::GetCurrentThreadId
+        SleepTimerCallback
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::EnterCriticalSection
-        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::SetThreadpoolTimer
+        API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::GetCurrentThreadId
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
         API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
         API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::CreateThreadpoolTimer
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::CreateEventW
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-        SleepTimerCallback
+        API-MS-WIN-CORE-THREADPOOL-L1-2-0.DLL::SetThreadpoolTimer
       Reset
         `vector_destructor_iterator'
-        ~TRefPtrCOM<struct_IBidiRequest>
         operator_delete
-      StringCbCopyW
+        ~TRefPtrCOM<struct_IBidiRequest>
+      WPP_SF_Sd
+        NTDLL.DLL::EtwTraceMessage
+      vFree
+        operator_delete
+      Update
+        FUN_180055b38
+        FUN_18001fe54
+        operator_delete
+        operator_new
       LeaveSplSem
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
+        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
         API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
         API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-        API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
         API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
-      WPP_SF_SS
-        NTDLL.DLL::EtwTraceMessage
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
       StatusFromHResult
+      GetLastErrorAsFailHR
+        API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
+      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoTaskMemFree
+      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoUninitialize
+      `vector_constructor_iterator'
+        _guard_xfg_dispatch_icall_nop
+      MSVCRT.DLL::_wcsicmp
       _guard_xfg_dispatch_icall_nop
         _guard_dispatch_icall
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      FindDriverEntry
-        FastStrcmpi
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::SetLastError
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsSetValue
-      API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL::TlsGetValue
-      API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL::GetLastError
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::SetEvent
-      API-MS-WIN-CORE-SYNCH-L1-1-0.DLL::LeaveCriticalSection
+      API-MS-WIN-CORE-COM-L1-1-0.DLL::CoCreateInstance
+      WPP_SF_SS
+        NTDLL.DLL::EtwTraceMessage
+      NTDLL.DLL::EtwTraceMessage
 
 ```
