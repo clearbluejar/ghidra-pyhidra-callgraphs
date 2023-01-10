@@ -3,6 +3,8 @@ import argparse
 from pathlib import Path
 import re
 import base64
+import zlib
+import json
 from typing import List, Union, Tuple, TYPE_CHECKING
 
 import pyhidra
