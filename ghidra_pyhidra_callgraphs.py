@@ -2,6 +2,7 @@
 import argparse
 from pathlib import Path
 import re
+import base64
 from typing import List, Union, Tuple, TYPE_CHECKING
 
 import pyhidra
@@ -284,6 +285,7 @@ def get_calling(f: Function, cgraph: CallGraph = CallGraph(), depth: int = 0, vi
     space = (depth+2)*'  '
 
     # loop check
+    # TODO move this to the correct loc
     if [f.entryPoint.toString(), f.getName(True)] in visited:
 
         # calling loop
@@ -381,9 +383,28 @@ def get_called(f: Function, cgraph: CallGraph = CallGraph(), depth: int = 0, vis
 def _wrap_mermaid(text: str) -> str:
     return f'''```mermaid\n{text}\n```'''
 
-def gen_callgraph_md(f: Function, called: str, calling: str, calling_entrypoints: str, called_endpoints: str):
+# based on serialize func  https://github.com/mermaid-js/mermaid-live-editor/blob/b5978e6faf7635e39452855fb4d062d1452ab71b/src/lib/util/serde.ts#L19-L24
+def gen_mermaid_url(graph: str, edit=False) -> str:
+    """
+    Generate valid mermaid live edit and image links
+    """
+    
+    mm_json = { 'code': graph, 'mermaid': { 'theme': 'dark'}, 'updateEditor': True, 'autoSync': True, 'updateDiagram': True, "editorMode":"code","panZoom": True }
+    base64_string = base64.urlsafe_b64encode(zlib.compress(json.dumps(mm_json).encode('utf-8'), 9)).decode('ascii')
+   
+    if edit:        
+        url = f'https://mermaid.live/edit#pako:{base64_string}'        
+    else:
+        url = f'https://mermaid.ink/img/svg/pako:{base64_string}'
+
+    return url
+
+def gen_callgraph_md(f: Function, called: str, calling: str, calling_entrypoints: str, called_endpoints: str, called_mind: str,calling_mind: str ):
 
     fname = f.getName(True)
+
+    calling_mind_url = f'[Edit calling Mindmap]({gen_mermaid_url(calling_mind,edit=True)})'
+    called_mind_url = f'![Edit called Mindmap]({gen_mermaid_url(called_mind,edit=True)})'
 
     md_template = f'''
 # {fname}
@@ -391,6 +412,10 @@ def gen_callgraph_md(f: Function, called: str, calling: str, calling_entrypoints
 ## Calling
 
 Functions that call `{fname}`.
+
+### Flowchart 
+
+[Edit on mermaid live]({gen_mermaid_url(calling,edit=True)})
 
 {_wrap_mermaid(calling)}
 
@@ -400,9 +425,17 @@ A condensed view, showing only entrypoints to the callgraph.
 
 {_wrap_mermaid(calling_entrypoints)}
 
+### Mindmap
+
+{calling_mind_url}
+
 ## Called
 
 Functions that `{fname}` calls
+
+### Flowchart
+
+[Edit on mermaid live]({gen_mermaid_url(called,edit=True)})
 
 {_wrap_mermaid(called)}
 
@@ -411,6 +444,10 @@ Functions that `{fname}` calls
 A condensed view, showing only endpoints of the callgraph.
 
 {_wrap_mermaid(called_endpoints)}
+
+### Mindmap
+
+{called_mind_url}
 
 '''
 
@@ -518,7 +555,7 @@ if __name__ == "__main__":
                     graph_path = output_path / Path(file_name + '.flow.md')
                     mind_path = output_path / Path(file_name + '.mind.md')                
                     #graph_path.write_text(_wrap_mermaid(calling_flow_ends))
-                    graph_path.write_text(gen_callgraph_md(f,called_flow,calling_flow,calling_flow_ends,called_flow_ends))
+                    graph_path.write_text(gen_callgraph_md(f,called_flow,calling_flow,calling_flow_ends,called_flow_ends, called_mind, calling_mind))
                     # graph_path.write_text(_wrap_mermaid(calling_flow) + '\n' + _wrap_mermaid(called_flow))
                     mind_path.write_text(_wrap_mermaid(calling_mind) + '\n' + _wrap_mermaid(called_mind))                            
                 else:

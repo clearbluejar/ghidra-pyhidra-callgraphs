@@ -508,7 +508,7 @@ Skipping sandbox::DriverConfigModuleObserver::SandboxSplDeviceCapabilities:     
 Some sample results are in the [.callgraphs](.callgraphs) directory:
 - [IsSpoolerImpersonating](.callgraphs/localspl.dll.x64.10.0.22000.376/IsSpoolerImpersonating.flow.md)
 - [LcmStartDocPort](.callgraphs/localspl.dll.x64.10.0.22000.376/LcmStartDocPort.flow.md)
-- [Several Others](.callgraphs/)
+- [Several Others](.callgraphs/localspl.dll.x64.10.0.22000.376/)
   
 ### Calling Flowchart
 
@@ -575,6 +575,8 @@ flowchart TD
 ### Calling Mind
 
 ![SplGetPrintProcCaps](https://user-images.githubusercontent.com/3752074/211108544-3f429617-98a1-4b73-9423-843d39f5de70.png)
+
+[Try editing on mermaid live calling Mindmap](https://mermaid.live/edit#pako:eNrlV0tv00AQ_isrn1qJQ5EQoNwgTqoKkpqaCglVQlt7kqy63rXG64Cp-t8Zrx0lqePdWEXkwB58mPlm5puH9_EYJDqFYMSCTKg04_mdQq3N2Vmcy0swEQpFH52MeV6cn98pZtc3FAZiyD-Wi42Isaksi9V1afaEjH1I07nGjMvxiuOuorWYw8_PQsG-hrFQk3-O3GiM-LKj3gMcGc7jssdhs2whhFqGAiExsvqqI43Gm3x_hicg4wzpCOgLt1lXygAqLmPD0YQ6sXaAzqFxcOpldBwfDxua77HOq6mQMFmD2jEnTdxOPmDIDZ_82vVNuhlXaU2roj8jBzQCiv3otznpISziXGsJ-AmqTn-LBvOMVRfQuhjq_wYSBIs5oLQ50o_SE9xvu63PUF4O43rRlvOlhBLmPIMp6iyEtUhgaPmj8l6KYuXF1VVuqTTMD7WhBbQ-jx4TXyk8A-Bs_y5gSExnY50jYffVVjfVeL1YSNrRGoFt2ABvPhYvmw9fDZwB_O6d2R05EiGKtWV2leXy302FI-z_NBiOMpxwNsgbXbFmpTQi_n14U3UQ_1vniTPEaY8UJ7UXDoenN9u0IrqOZKMRgW9gKQqDVY3uDFF_HQb-LIyNV5A8PMeiBRdHxN25xTeZbW3896M-y-nt_Mfr9xcXbxbv3nIvvqOoixu8ogcH0DVdpPT2eAzMCjL7Ckk5PgRPpC1t3yepoAOcFAZLICkvjY4rlWwlDS4UfEmt2YrBGs7at41945A05-q71hvY0x8HYMWh)
 
 ### Called
 
