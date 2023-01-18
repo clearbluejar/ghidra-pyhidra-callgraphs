@@ -13,11 +13,11 @@
 
 ## About
 
-Blog post: [Ghidra Pyhidra Function Callgraphs](https://clearbluejar.github.io/posts/callgraphs-with-ghidra-pyhidra-and-jpype)
+Blog post: [Ghidra, Pyhidra (via Jpype), and Callgraphs Oh My!](https://clearbluejar.github.io/posts/callgraphs-with-ghidra-pyhidra-and-jpype)
 
 A demo repo leveraging a Ghidra Headless (non-GUI) Python script to generate function call graphs in mermaidsjs compatible markdown.
 
-This Python script is powered by [Ghidra](https://github.com/NationalSecurityAgency/ghidra) and [Pyhidra](https://github.com/dod-cyber-crime-center/pyhidra).
+This Python script is powered by [Ghidra](https://github.com/NationalSecurityAgency/ghidra) and [Pyhidra](https://github.com/dod-cyber-crime-center/pyhidra) (via [Jpype](https://github.com/jpype-project/jpype)).
 
 ---
 
@@ -26,9 +26,9 @@ This Python script is powered by [Ghidra](https://github.com/NationalSecurityAge
   - [About](#about)
   - [TOC](#toc)
   - [Install](#install)
-    - [Devcontainer Option 1: Open a Git repository or GitHub PR in an isolated container volume](#devcontainer-option-1-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)
-    - [Devcontainer Option 2: Open an existing folder in a container](#devcontainer-option-2-open-an-existing-folder-in-a-container)
-  - [Virtualenv Option 3:](#virtualenv-option-3)
+    - [Standard Option 1: Virtualenv](#standard-option-1-virtualenv)
+    - [Devcontainer Option 2: Open a Git repository or GitHub PR in an isolated container volume](#devcontainer-option-2-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)
+    - [Devcontainer Option 3: Open an existing folder in a container](#devcontainer-option-3-open-an-existing-folder-in-a-container)
   - [Usage](#usage)
     - [Demo Repo Usage](#demo-repo-usage)
   - [Generated Call Graphs](#generated-call-graphs)
@@ -41,22 +41,9 @@ This Python script is powered by [Ghidra](https://github.com/NationalSecurityAge
 
 ---
 
-## Install  
+## Install
 
-### Devcontainer Option 1: Open a Git repository or GitHub PR in an isolated container volume
-
-1. Start VS Code and run `Remote-Containers: Clone Repository in Container Volume...` from the Command Palette (F1).
-2. Ctrl-V `https://github.com/clearbluejar/ghidra-python-vscode-devcontainer-skeleton`
-3. VS Code will reload, clone the source code, and start building the container. 
-4. After the build completes, VS Code will open with the container. You can now work with the repository source code in this independent environment as you would if you had cloned the code locally.
-
-### Devcontainer Option 2: Open an existing folder in a container
-
-1. `git clone git@github.com:clearbluejar/ghidra-pyhidra-callgraphs.git`
-2. code `ghidra-pyhidra-callgraphs`
-3. When VS Code loads, it will recognize the .devcontainer folder and ask if you would like to open
-
-### Virtualenv Option 3:
+### Standard Option 1: Virtualenv
 
 1. Install Ghidra and set environment variable GHIDRA_INSTALL_DIR to install location. This is a [requirement for Pyhidra](https://github.com/dod-cyber-crime-center/pyhidra#install).
 2. `git clone git@github.com:clearbluejar/ghidra-pyhidra-callgraphs.git`
@@ -66,6 +53,20 @@ python3 -m venv .env
 .env/bin/activate
 pip install -r requirements.txt
 ```
+
+### Devcontainer Option 2: Open a Git repository or GitHub PR in an isolated container volume
+
+1. Start VS Code and run `Remote-Containers: Clone Repository in Container Volume...` from the Command Palette (F1).
+2. Ctrl-V `https://github.com/clearbluejar/ghidra-python-vscode-devcontainer-skeleton`
+3. VS Code will reload, clone the source code, and start building the container. 
+4. After the build completes, VS Code will open with the container. You can now work with the repository source code in this independent environment as you would if you had cloned the code locally.
+
+### Devcontainer Option 3: Open an existing folder in a container
+
+1. `git clone git@github.com:clearbluejar/ghidra-pyhidra-callgraphs.git`
+2. code `ghidra-pyhidra-callgraphs`
+3. When VS Code loads, it will recognize the .devcontainer folder and ask if you would like to open
+
 
 ## Usage
 
