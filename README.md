@@ -1,17 +1,19 @@
 # ghidra-pyhidra-callgraphs
 
 <p align="center">
-<img align="center" width=70% src="https://user-images.githubusercontent.com/3752074/211317570-bb383579-799c-4766-ae8b-3313ee83ea72.png">
+<img align="center" width=70% src="https://user-images.githubusercontent.com/3752074/213068840-4ce9db76-0396-44e0-ae3d-747fcf0102ea.png">
 </p>
 
+ 
 <p align="center">
 <a href="https://twitter.com/intent/follow?screen_name=clearbluejar"><img align="center" src="https://img.shields.io/twitter/follow/clearbluejar?color=blue&style=for-the-badge"></a> 
   <img align="center" src="https://img.shields.io/github/stars/clearbluejar/ghidra-pyhidra-callgraphs?style=for-the-badge">
 </p>
 
-Blog post: [Ghidra Pyhidra Function Callgraphs](https://clearbluejar.github.io/posts/ghidra-function-callgraphs)
 
 ## About
+
+Blog post: [Ghidra Pyhidra Function Callgraphs](https://clearbluejar.github.io/posts/callgraphs-with-ghidra-pyhidra-and-jpype)
 
 A demo repo leveraging a Ghidra Headless (non-GUI) Python script to generate function call graphs in mermaidsjs compatible markdown.
 
