@@ -1,4 +1,3 @@
-
 import argparse
 from pathlib import Path
 import re
@@ -485,11 +484,9 @@ if __name__ == "__main__":
     with pyhidra.open_program(bin_path, project_location=project_location, project_name=bin_path.name, analyze=False) as flat_api:
 
         from ghidra.program.util import GhidraProgramUtilities
-        from ghidra.app.script import GhidraScriptUtil
-        from ghidra.base.project import GhidraProject
+        from ghidra.app.script import GhidraScriptUtil        
 
-        program: "ghidra.program.model.listing.Program" = flat_api.getCurrentProgram()
-        # project = GhidraProject.openProject(project_location + '_ghidra', bin_path.name + '_ghidra', True)
+        program: "ghidra.program.model.listing.Program" = flat_api.getCurrentProgram()        
 
         # configure symbol path for bin
         if args.symbol_path:
@@ -563,9 +560,3 @@ if __name__ == "__main__":
                 else:
                     # too big for demo
                     print(f"Skipping {f.getName(True)}:\t\t\t\tcalling: {len(calling.graph)} {calling.max_depth} called: {len(called.graph)} {called.max_depth}")
-                
-
-                
-                
-
-                
