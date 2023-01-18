@@ -286,7 +286,6 @@ def get_calling(f: Function, cgraph: CallGraph = CallGraph(), depth: int = 0, vi
     space = (depth+2)*'  '
 
     # loop check
-    # TODO move this to the correct loc
     if [f.entryPoint.toString(), f.getName(True)] in visited:
 
         # calling loop
