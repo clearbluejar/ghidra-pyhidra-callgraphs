@@ -1502,4 +1502,4 @@ classDef shaded fill:#339933
 ```
 
 ---
-<sub>Photo by Johannes Plenio </sub>
+<sub>Photo by PexelBay</sub>
