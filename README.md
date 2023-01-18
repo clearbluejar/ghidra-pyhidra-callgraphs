@@ -54,7 +54,7 @@ This Python script is powered by [Ghidra](https://github.com/NationalSecurityAge
 2. code `ghidra-pyhidra-callgraphs`
 3. When VS Code loads, it will recognize the .devcontainer folder and ask if you would like to open
 
-## Virtualenv Option 3:
+### Virtualenv Option 3:
 
 1. Install Ghidra and set environment variable GHIDRA_INSTALL_DIR to install location. This is a [requirement for Pyhidra](https://github.com/dod-cyber-crime-center/pyhidra#install).
 2. `git clone git@github.com:clearbluejar/ghidra-pyhidra-callgraphs.git`
