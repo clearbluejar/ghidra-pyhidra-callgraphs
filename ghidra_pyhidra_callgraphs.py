@@ -500,7 +500,7 @@ if __name__ == "__main__":
         if GhidraProgramUtilities.shouldAskToAnalyze(program):
             GhidraScriptUtil.acquireBundleHostReference()
             flat_api.analyzeAll(program)
-            GhidraProgramUtilities.setAnalyzedFlag(program, True)
+            GhidraProgramUtilities.markProgramAnalyzed(program)
             GhidraScriptUtil.releaseBundleHostReference()
 
         all_funcs = program.functionManager.getFunctions(True)
